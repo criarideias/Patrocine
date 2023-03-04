@@ -30,8 +30,335 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+/*Header*/
+
+.header {
+  position: absolute;
+  top: 0;
+  display: flex;
   flex-direction: row;
+  align-items: center;
+  width: 100vw;
+  justify-content: center;
+  height: 10vh;
+  z-index: 999;
+}
+
+.header-flex {
+  width: 90vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header img {
+  width: 8vw;
+}
+
+.header-btts {
+  width: 40vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.header-btts a {
+  color: white;
+  font-size: 0.9vw;
+  font-weight: 500;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease all;
+}
+
+.header-btts a:hover {
+transform: translateY(-0.5vh);
+color: var(--red);
+}
+
+.header-btts .page-select {
+color: var(--red);
+}
+
+
+.convenios {
+  font-size: 2.8vw;
+  color: var(--red);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-top: 14vh;
+}
+
+.convenio-info {
+  width: 90vw;
+  margin-top: 2vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.tittle {
+  font-size: 2vw;
+  color: var(--fontcolor1);
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 4vh;
+}
+
+.convenio-info p {
+  font-size: 0.9vw;
+  color: var(--fontcolor2);
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 1vh;
+}
+
+
+.convenio-info button {
+  background: var(--red);
+  border: 2px solid var(--red);
+  width: 100%;
+  border-radius: 8px;
+  padding: 7px 0px;
+  font-size: 1.8vw;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 3vh;
+  transition: 0.3s ease all;
+  font-weight: 500;
+}
+
+.convenio-info button:hover {
+  background: transparent;
+  letter-spacing: 4px;
+  cursor: pointer;
+  color: var(--red);
+}
+
+
+.info-box {
+  width: 30vw;
+  height: 34vw;
+  display: flex;
+  flex-direction: column;
+  background: var(--dark2);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+  padding: 3.5vh 2vw;
+  border-radius: 1.5vw;
   justify-content: center;
   align-items: center;
-    flex-wrap: wrap;
+  margin-top: 8vh;
+}
+
+.info-box img {
+  width: 100%;
+  margin-top: 2vh;
+  border-radius: 25px;
+}
+
+.info-box h2 {
+  font-size: 1.8vw;
+  color: var(--fontcolor1);
+  font-weight: 400;
+
+}
+
+
+
+
+
+
+/*rodape*/
+
+.rodape {
+  width: 90vw;
+  border-top: 2px solid var(--gray);
+  margin-top: 15vh;
+  padding: 2vh 0vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+.reuniao {
+  width: 22%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding: 10px 0px;
+}
+
+.reuniao h2 {
+  font-size: 1.5vw;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.reuniao h3 {
+  font-size: 0.9vw;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 200;
+}
+
+.underline {
+  width: 100%;
+  position: relative;
+  margin-top: 1.5vh;
+}
+.underline:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 5px;
+  background: var(--red);
+  transition: 0.3s ease-in-out;
+  filter: blur(5px);
+  z-index: 999;
+}
+
+.underline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  z-index: 999;
+  background: var(--red);
+  transition: 0.3s ease-in-out;
+}
+
+.underline:focus-within:after {
+  width: 100%;
+}
+
+.underline:focus-within::before {
+  width: 100%;
+}
+.underline input {
+  font-size: 1.2vw;
+  width: 100%;
+  background: transparent;
+  border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+  font-weight: 400;
+  height: 6vh;
+  transition: 0.3s ease-out;
+  color: #fff;
+}
+
+.underline input::placeholder {
+  transition: 0.3s ease all;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.underline:focus-within input::placeholder {
+  color: var(--red);
+}
+
+.reuniao button {
+  background: var(--red);
+  width: 100%;
+  border-radius: 8px;
+  padding: 7px 0px;
+  font-size: 1.4vw;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 3vh;
+  transition: 0.3s ease all;
+}
+
+.reuniao button:hover {
+  background:var(--red);
+  letter-spacing: 4px;
+  transform: translateY(-0.5vh);
+  cursor: pointer;
+}
+
+.endereco {
+  width: 22%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding: 10px 0px;
+}
+
+.endereco h2 {
+  font-size: 1.5vw;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.endereco .contato {
+  font-size: 1.5vw;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  margin-top: 5vh;
+}
+
+.endereco h3 {
+  font-size: 1.1vw;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 200;
+  margin-top: 1vh;
+}
+
+.endereco a {
+  font-size: 1.1vw;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  margin-top: 1.5vh;
+  transition: 0.3s ease all;
+}
+
+.endereco a:hover {
+  transform: translateY(-3px);
+  color: var(--red);
+}
+
+.endereco i {
+  font-size: 1.1vw;
+  margin-right: 0.5vw;
+}
+
+.outros {
+  width: 22%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding: 10px 0px;
+}
+
+.outros h2 {
+  font-size: 1.5vw;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+}
+
+.outros a {
+  font-size: 1.1vw;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 300;
+  margin-top: 1.5vh;
+  transition: 0.3s ease all;
+}
+
+.outros a:hover {
+  transform: translateY(-3px);
+  color: var(--red);
 }

@@ -70,10 +70,20 @@ body {
 }
 
 .header-btts a {
-    color: white;
-    font-size: 0.9vw;
-    font-weight: 500;
-    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  color: white;
+  font-size: 0.9vw;
+  font-weight: 500;
+  text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+  transition: 0.3s ease all;
+}
+
+.header-btts a:hover {
+transform: translateY(-0.5vh);
+color: var(--red);
+}
+
+.header-btts .page-select {
+color: var(--red);
 }
 
 
