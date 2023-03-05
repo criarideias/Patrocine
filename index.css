@@ -54,6 +54,13 @@ body {
     margin-top: -18vh;
 }
 
+.mobile-background {
+  display: none;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+}
+
 .movie-info-flex{
     position: absolute;
     width: 90vw;
@@ -199,7 +206,7 @@ body {
 .inner-nav {
   width: 90vw;
   height: 100%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
   z-index: 999;
