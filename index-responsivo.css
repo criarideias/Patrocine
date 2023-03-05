@@ -1,8 +1,16 @@
 
 
 @media screen and (max-width: 800px) {
-    .video-background {
+    .video-background video {
         display: none;
+    }
+    .video-info-flex {
+        position: absolute;
+        width: 90vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
     }
 
     .header-flex {
