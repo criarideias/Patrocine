@@ -1,4 +1,12 @@
-
+@media screen and (max-width: 1150px) {
+    .video-background video {
+        width: 195vw;
+        height: 135.5vh;
+        position: absolute;
+        top: 0;
+        margin-top: -18vh;
+    }
+}
 
 @media screen and (max-width: 800px) {
     .header-flex {
@@ -120,7 +128,7 @@
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        margin-top: 20vh;
+        margin-top: 10vh;
         overflow-x: scroll;
         padding: 3vh 0vw;
     }
@@ -203,4 +211,425 @@
     .avise:hover {
         cursor: default;
     }
+
+
+    .autorizacao {
+        font-size: 2.8vw;
+    }
+
+    .socialmedia-area {
+        font-size: 3.5vw;
+    }
+
+    .social-btt {
+        font-size: 5vw;
+        cursor: default;
+    }
+    
+    .social-btt i {
+        font-size: 15vw;
+    }
+    
+
+    .rodape {
+        margin-top: 175vw;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .reuniao {
+        width: 82%;
+    }
+
+    .reuniao h2 {
+        font-size: 3.5vw;
+    }
+      
+      .reuniao h3 {
+        font-size: 2vw;
+    }
+
+    .underline input {
+        font-size: 2.2vw;
+    }
+    
+    .reuniao button {
+        padding: 7px 0px;
+        font-size: 3vw;
+    }
+
+    .endereco {
+        width: 82%;
+        margin-top: 2vh;
+    }
+
+    .endereco h2 {
+        font-size: 3.5vw;
+    }
+
+    .endereco .contato {
+        font-size: 3.5vw;
+      }
+
+    .endereco h3 {
+        font-size: 2.1vw;
+      
+    }
+      
+    .endereco a {
+        font-size: 2.1vw;
+      
+    }
+      
+    .endereco i {
+        font-size: 2.1vw;
+    }
+
+    .outros {
+        width: 82%;
+        margin-top: 2vh;
+      }
+      
+    .outros h2 {
+        font-size: 3.5vw;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 700px) {
+      
+
+    .movie-info-flex {
+        margin-top: -65vh;
+    }
+
+    .movie-info img {
+        width: 52vw;   
+    }
+    
+    .movie-info p {
+        display: none;
+    }
+    
+    .info-btts button {
+        width: 45%;
+        height: 6.5vh;
+        font-size: 2.8vw;
+    }
+
+    .exibicao-area {
+        margin-top: -20vh;
+    }
+    
+    .exibicao-area::before {
+        margin-top: -18vh;
+    }
+    
+    .exibicao-area::after {
+        margin-top: -8.5vh;
+    }
+
+    .classificacao {
+        font-size: 3.5vw;
+    }
+
+    .movie-img {
+        width: 100%;
+        height: 61vw;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .movie-box img {
+        width: 95%;
+        border-radius: 3.5vw;
+        margin-top: -8vh;
+    }
+
+    .comprar {
+        font-size: 3.5vw;
+        color: var(--white);
+    }
+    .comprar:hover {
+        cursor: default;
+    }
+
+    .movie-box h3 {
+        font-size: 3vw;
+    }
+    
+    .breve-tittle {
+        font-size: 3.5vw;
+    }
+
+    .avise {
+        font-size: 3vw;
+        border-radius: 1vw;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 520px) {
+      
+    .inner-nav img {
+        width: 6.5vw;
+    }
+
+    .menu-icon {
+        margin-left: 79vw;
+    }
+      
+
+    .movie-info-flex {
+        margin-top: -75vh;
+    }
+
+    .movie-info img {
+        width: 58vw;   
+    }
+    
+    .movie-info p {
+        display: none;
+    }
+    
+    .info-btts button {
+        width: 48%;
+        height: 6.5vh;
+        font-size: 3.2vw;
+    }
+
+    .exibicao-area {
+        margin-top: -25vh;
+    }
+    
+    .exibicao-area::before {
+        margin-top: -17vh;
+        width: 130vw;
+    }
+    
+    .exibicao-area::after {
+        margin-top: -10.5vh;
+        width: 120vw;
+    }
+
+    .classificacao {
+        font-size: 3.5vw;
+    }
+
+    .movie-img {
+        width: 100%;
+        height: 58vw;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .movie-box img {
+        width: 95%;
+        border-radius: 3.5vw;
+        margin-top: -8vh;
+    }
+
+    .comprar {
+        font-size: 4vw;
+        color: var(--white);
+    }
+    .comprar:hover {
+        cursor: default;
+    }
+
+    .movie-box h3 {
+        font-size: 3.5vw;
+    }
+    
+    .breve-tittle {
+        font-size: 5vw;
+    }
+
+    .avise {
+        font-size: 3.3vw;
+        border-radius: 1vw;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 420px) {
+      
+    .inner-nav img {
+        width: 7vw;
+    }
+      
+
+    .movie-info-flex {
+        margin-top: -88vh;
+    }
+
+    .movie-info img {
+        width: 58vw;   
+    }
+
+    .info-btts {
+        width: 120%;
+        padding: 0vw 1vw;
+    }
+    
+    .info-btts button {
+        width: 48%;
+        height: 6.5vh;
+        font-size: 4vw;
+    }
+
+    .exibicao-area {
+        margin-top: -32vh;
+    }
+    
+    .exibicao-area::before {
+        margin-top: -20vh;
+        width: 130vw;
+    }
+    
+    .exibicao-area::after {
+        margin-top: -13.5vh;
+        width: 120vw;
+    }
+
+    .classificacao {
+        font-size: 3.5vw;
+    }
+
+    .movie-img {
+        width: 100%;
+        height: 58vw;
+        position: relative;
+        display: flex;
+        justify-content: center;
+    }
+
+    .movie-box img {
+        width: 95%;
+        border-radius: 3.5vw;
+        margin-top: -8vh;
+    }
+
+    .comprar {
+        font-size: 4vw;
+        color: var(--white);
+    }
+    .comprar:hover {
+        cursor: default;
+    }
+
+    .movie-box h3 {
+        font-size: 3.5vw;
+    }
+    
+    .breve-tittle {
+        font-size: 5vw;
+    }
+
+    .avise {
+        font-size: 3.3vw;
+        border-radius: 1vw;
+    }
+
+    .reuniao h2 {
+        font-size: 4.5vw;
+    }
+      
+      .reuniao h3 {
+        font-size: 3vw;
+    }
+
+    .underline input {
+        font-size: 3.6vw;
+    }
+    
+    .reuniao button {
+        padding: 7px 0px;
+        font-size: 4vw;
+    }
+
+
+    .endereco h2 {
+        font-size: 4.5vw;
+    }
+
+    .endereco .contato {
+        font-size: 4.5vw;
+      }
+
+    .endereco h3 {
+        font-size: 3.1vw;
+      
+    }
+      
+    .endereco a {
+        font-size: 3.1vw;
+      
+    }
+      
+    .endereco i {
+        font-size: 3.1vw;
+    }
+
+    .outros {
+        width: 82%;
+        margin-top: 2vh;
+      }
+      
+    .outros h2 {
+        font-size: 4.5vw;
+    }
+
 }

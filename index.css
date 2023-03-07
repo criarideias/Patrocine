@@ -607,7 +607,7 @@ body {
 .rodape {
     width: 90vw;
     border-top: 2px solid var(--gray);
-    margin-top: 120vh;
+    margin-top: 55vw;
     padding: 2vh 0vw;
     display: flex;
     justify-content: space-between;
