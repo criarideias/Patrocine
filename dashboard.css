@@ -30,7 +30,185 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
   align-items: center;
+}
+
+
+/*Header*/
+
+.header {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100vw;
+    justify-content: center;
+    height: 10vh;
+    z-index: 999;
+  }
+  
+  .header-flex {
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header img {
+    width: 8vw;
+  }
+  
+  .header-btts {
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  
+  .header-btts a {
+    color: white;
+    font-size: 0.9vw;
+    font-weight: 500;
+    text-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    transition: 0.3s ease all;
+  }
+  
+  .header-btts a:hover {
+  transform: translateY(-0.5vh);
+  color: var(--red);
+  }
+  
+  .header-btts .page-select {
+  color: var(--red);
+  }
+
+
+
+
+
+
+
+.login {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    /*display: flex;*/
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    backdrop-filter: blur(3px);
+    display: none;
+}
+
+.login-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 45vh;
+    width: 40vw;
+    padding: 2vw;
+    background: var(--dark3);
+    border-radius: 25px;
+}
+
+.login-box h2 {
+    font-size: 2.5vw;
+    color: var(--red);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+
+.underline {
+    width: 100%;
+    position: relative;
+    margin-top: 1.5vh;
+  }
+  .underline:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    border-radius: 5px;
+    background: var(--red);
+    transition: 0.3s ease-in-out;
+    filter: blur(5px);
+    z-index: 999;
+  }
+  
+  .underline::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    z-index: 999;
+    background: var(--red);
+    transition: 0.3s ease-in-out;
+  }
+  
+  .underline:focus-within:after {
+    width: 100%;
+  }
+  
+  .underline:focus-within::before {
+    width: 100%;
+  }
+  .underline input {
+    font-size: 2vw;
+    width: 100%;
+    background: transparent;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    height: 10vh;
+    transition: 0.3s ease-out;
+    color: #fff;
+  }
+  
+  .underline input::placeholder {
+    transition: 0.3s ease all;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .underline:focus-within input::placeholder {
+    color: var(--red);
+  }
+
+
+  .login-box button {
+    background: transparent;
+    width: 100%;
+    border-radius: 8px;
+    padding: 7px 0px;
+    font-size: 2.5vw;
+    font-weight: 400;
+    color: var(--red);
+    margin-top: 4vh;
+    transition: 0.3s ease all;
+    border: 2px solid var(--red);
+  }
+  
+  .login-box button:hover {
+    background:var(--red);
+    letter-spacing: 4px;
+    cursor: pointer;
+    color: var(--white);
+  }
+
+
+
+
+
+.dash-left {
+    width: 18vw;
+    background: var(--dark3);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
