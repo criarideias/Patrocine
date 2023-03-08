@@ -24,3 +24,12 @@ ScrollReveal().reveal(".info-price", {
     opacity: 0.1
 
 });
+
+ScrollReveal().reveal(".price-area ul", {
+    duration: 500,
+    origin: "bottom",
+    distance: "500px",
+    easing: "ease-in-out",
+    opacity: 0.1
+
+});
