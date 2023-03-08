@@ -43,17 +43,29 @@
         <button>Sair</button>
     </section>
     <section class="dash-right">
-        <main class="filme-principal">
+        <main class="right-area filme-principal">
             <h2>Video Background para PC</h2>
-            <input type="file"></h2>
+            <form action="#">
+              <div class="input-file-container">  
+                <input class="input-file" id="my-file" type="file">
+                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+              </div>
+              <p class="file-return"></p>
+            </form>
             <h2>Titulo do filme</h2>
-            <input type="file">
+            <input type="font;file">
             <h2>Sinopse do Filme</h2>
-            <input type="text" name="" id="" placeholder="Sinopse">
+            <textarea name="" id=""" placeholder="Sinopse"></textarea>
             <h2>Foto Background para Mobile</h2>
-            <input type="file">
+            <form action="#">
+              <div class="input-file-container">  
+                <input class="input-file" id="my-file" type="file">
+                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+              </div>
+              <p class="file-return"></p>
+            </form>
         </main>
-        <main class="filmes">
+        <main class="right-area filmes">
             <h2>Filmes Em Exibição</h2>
             <main class="movies-flex">
                 <div class="movie-box">
@@ -62,26 +74,69 @@
                     <h3>##/## - ##/##</h3>
                     <button>Apagar Filme</button>
                 </div>
+                <div class="movie-box">
+                  <img src="/imagens/cartas-mobile.jpg" alt="">
+                  <h2>Nome do Filme</h2>
+                  <h3>##/## - ##/##</h3>
+                  <button>Apagar Filme</button>
+              </div>
+              <div class="movie-box">
+                <img src="/imagens/cartas-mobile.jpg" alt="">
+                <h2>Nome do Filme</h2>
+                <h3>##/## - ##/##</h3>
+                <button>Apagar Filme</button>
+            </div>
+            <div class="movie-box">
+              <img src="/imagens/cartas-mobile.jpg" alt="">
+              <h2>Nome do Filme</h2>
+              <h3>##/## - ##/##</h3>
+              <button>Apagar Filme</button>
+          </div>
+          <div class="movie-box">
+            <img src="/imagens/cartas-mobile.jpg" alt="">
+            <h2>Nome do Filme</h2>
+            <h3>##/## - ##/##</h3>
+            <button>Apagar Filme</button>
+        </div>
             </main>
 
             <h2>Adicionar Filme à Programação</h2>
             <input type="text" placeholder="Nome do Filme">
 
             <h3>Capa Do Filme</h3>
-            <input type="file">
+            <form action="#">
+              <div class="input-file-container">  
+                <input class="input-file" id="my-file" type="file">
+                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+              </div>
+              <p class="file-return"></p>
+            </form>
 
             <h3>Definir Datas do Filme</h3>
             <div class="data-box">
                 <input type="date">
-                <h4>à</h4>
+                <h4>até</h4>
                 <input type="date">
             </div>
         </main>
-        <main class="anuncios">
+        <main class="right-area anuncios">
             <h2>Adicionar um Anuncio</h2>
-            <input type="file">
+            <form action="#">
+              <div class="input-file-container">  
+                <input class="input-file" id="my-file" type="file">
+                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+              </div>
+              <p class="file-return"></p>
+            </form>
             <h2>Adicione uma Novidade</h2>
-            <input type="file">
+            <form action="#">
+              <div class="input-file-container">  
+                <input class="input-file" id="my-file" type="file">
+                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+              </div>
+              <p class="file-return"></p>
+            </form>
         </main>
     </section>
+<script src="/scripts/return.js"></script>
 </body>
