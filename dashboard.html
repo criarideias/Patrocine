@@ -53,7 +53,13 @@
               <p class="file-return"></p>
             </form>
             <h2>Titulo do filme</h2>
-            <input type="font;file">
+            <form action="#">
+              <div class="input-file-container">  
+                <input class="input-file" id="my-file" type="file">
+                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+              </div>
+              <p class="file-return"></p>
+            </form>
             <h2>Sinopse do Filme</h2>
             <textarea name="" id=""" placeholder="Sinopse"></textarea>
             <h2>Foto Background para Mobile</h2>
@@ -102,7 +108,10 @@
 
             <h2>Adicionar Filme à Programação</h2>
             <input type="text" placeholder="Nome do Filme">
-
+            <h2>Sinopse do Filme</h2>
+            <textarea name="" id=""" placeholder="Sinopse"></textarea>
+            <h2>Elenco do Filme</h2>
+            <textarea name="" id=""" placeholder="Elenco"></textarea>
             <h3>Capa Do Filme</h3>
             <form action="#">
               <div class="input-file-container">  
@@ -117,6 +126,41 @@
                 <input type="date">
                 <h4>até</h4>
                 <input type="date">
+            </div>
+            <h3>Adicionar Horarios</h3>
+            <select name="" id="">
+              <option>Sala 1</option>
+              <option>Sala 2</option>
+            </select>
+            <div class="horarios-area">
+              <div class="input-data">
+                <input type="checkbox" id="data-1">
+                <label id="data-box-1" for="data-1">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  13:00
+                </label>
+              </div>
+              <div class="input-data">
+                <input type="checkbox" id="data-2">
+                <label id="data-box-2" for="data-2">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  13:15
+                </label>
+              </div>
+              <div class="input-data">
+                <input type="checkbox" id="data-3">
+                <label id="data-box-3" for="data-3">
+                  <i class="fa fa-check" aria-hid den="true"></i>
+                  13:30
+                </label>
+              </div>
+              <div class="input-data">
+                <input type="checkbox" id="data-4">
+                <label id="data-box-4" for="data-4">
+                  <i class="fa fa-check" aria-hidden="true"></i>
+                  13:45
+                </label>
+              </div>
             </div>
         </main>
         <main class="right-area anuncios">

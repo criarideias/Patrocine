@@ -415,3 +415,70 @@ body {
   font-weight: 400;
 }
 
+.filmes select {
+  background: var(--red);
+  width: 20vw;
+  padding: 0.5vw;
+  border-radius: 10px;
+  text-align: center;
+  color: var(--fontcolor1);
+  font-size: 1.5vw;
+  margin-top: 2vh;
+}
+
+.horarios-area {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 5vh;
+}
+
+.input-data {
+  display: flex;
+  width: 15%;
+  background: var(--dark2);
+  padding: 1vw;
+  margin-top: 1vh;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px solid var(--red);
+  cursor: pointer;
+}
+
+.input-data label {
+  width: 100%;
+  color: var(--fontcolor1);
+  font-size: 1.5vw;
+  cursor: pointer;
+  
+}
+
+.input-data i {
+  margin-right: 2vw;
+  color: rgba(255, 255, 255, 0.1);
+  transition: 0.3s ease all;
+}
+
+.horarios-area input {
+  display: none;
+}
+
+
+#data-1:checked ~ #data-box-1 i {
+  color: var(--red);
+}
+
+#data-2:checked ~ #data-box-2 i {
+  color: var(--red);
+}
+
+#data-3:checked ~ #data-box-3 i {
+  color: var(--red);
+}
+
+#data-4:checked ~ #data-box-4 i {
+  color: var(--red);
+}
