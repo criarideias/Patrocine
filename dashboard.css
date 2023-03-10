@@ -437,9 +437,9 @@ body {
 
 .input-data {
   display: flex;
-  width: 15%;
+  width: 10%;
   background: var(--dark2);
-  padding: 1vw;
+  
   margin-top: 1vh;
   justify-content: flex-start;
   align-items: center;
@@ -451,13 +451,17 @@ body {
 .input-data label {
   width: 100%;
   color: var(--fontcolor1);
-  font-size: 1.5vw;
+  font-size: 1.2vw;
   cursor: pointer;
-  
+  height: 100%;
+  padding: 1vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .input-data i {
-  margin-right: 2vw;
+  margin-right: 1vw;
   color: rgba(255, 255, 255, 0.1);
   transition: 0.3s ease all;
 }
@@ -481,4 +485,194 @@ body {
 
 #data-4:checked ~ #data-box-4 i {
   color: var(--red);
+}
+
+#data-5:checked ~ #data-box-5 i {
+  color: var(--red);
+}
+
+#data-6:checked ~ #data-box-6 i {
+  color: var(--red);
+}
+
+#data-7:checked ~ #data-box-7 i {
+  color: var(--red);
+}
+
+#data-8:checked ~ #data-box-8 i {
+  color: var(--red);
+}
+
+#data-9:checked ~ #data-box-9 i {
+  color: var(--red);
+}
+
+#data-10:checked ~ #data-box-10 i {
+  color: var(--red);
+}
+
+#data-11:checked ~ #data-box-11 i {
+  color: var(--red);
+}
+
+#data-12:checked ~ #data-box-12 i {
+  color: var(--red);
+}
+
+#data-13:checked ~ #data-box-13 i {
+  color: var(--red);
+}
+
+#data-14:checked ~ #data-box-14 i {
+  color: var(--red);
+}
+
+#data-15:checked ~ #data-box-15 i {
+  color: var(--red);
+}
+
+#data-16:checked ~ #data-box-16 i {
+  color: var(--red);
+}
+
+#data-17:checked ~ #data-box-17 i {
+  color: var(--red);
+}
+
+#data-18:checked ~ #data-box-18 i {
+  color: var(--red);
+}
+
+#data-19:checked ~ #data-box-19 i {
+  color: var(--red);
+}
+
+#data-20:checked ~ #data-box-20 i {
+  color: var(--red);
+}
+
+#data-21:checked ~ #data-box-21 i {
+  color: var(--red);
+}
+
+#data-22:checked ~ #data-box-22 i {
+  color: var(--red);
+}
+
+#data-23:checked ~ #data-box-23 i {
+  color: var(--red);
+}
+
+#data-24:checked ~ #data-box-24 i {
+  color: var(--red);
+}
+
+#data-25:checked ~ #data-box-25 i {
+  color: var(--red);
+}
+
+#data-26:checked ~ #data-box-26 i {
+  color: var(--red);
+}
+
+#data-27:checked ~ #data-box-27 i {
+  color: var(--red);
+}
+
+#data-28:checked ~ #data-box-28 i {
+  color: var(--red);
+}
+
+#data-29:checked ~ #data-box-29 i {
+  color: var(--red);
+}
+
+#data-30:checked ~ #data-box-30 i {
+  color: var(--red);
+}
+
+#data-295:checked ~ #data-box-295 i {
+  color: var(--red);
+}
+
+#data-305:checked ~ #data-box-305 i {
+  color: var(--red);
+}
+
+
+#data-31:checked ~ #data-box-31 i {
+  color: var(--red);
+}
+
+#data-32:checked ~ #data-box-32 i {
+  color: var(--red);
+}
+
+#data-33:checked ~ #data-box-33 i {
+  color: var(--red);
+}
+
+#data-34:checked ~ #data-box-34 i {
+  color: var(--red);
+}
+
+#data-35:checked ~ #data-box-35 i {
+  color: var(--red);
+}
+
+#data-36:checked ~ #data-box-36 i {
+  color: var(--red);
+}
+
+#data-37:checked ~ #data-box-37 i {
+  color: var(--red);
+}
+
+#data-38:checked ~ #data-box-38 i {
+  color: var(--red);
+}
+
+#data-39:checked ~ #data-box-39 i {
+  color: var(--red);
+}
+
+#data-40:checked ~ #data-box-40 i {
+  color: var(--red);
+}
+
+#data-41:checked ~ #data-box-41 i {
+  color: var(--red);
+}
+
+#data-42:checked ~ #data-box-42 i {
+  color: var(--red);
+}
+
+#data-43:checked ~ #data-box-43 i {
+  color: var(--red);
+}
+
+#data-44:checked ~ #data-box-44 i {
+  color: var(--red);
+}
+
+
+.send {
+  background: transparent;
+  width: 100%;
+  border-radius: 8px;
+  padding: 7px 0px;
+  font-size: 2.5vw;
+  font-weight: 400;
+  color: var(--red);
+  margin-top: 4vh;
+  transition: 0.3s ease all;
+  border: 2px solid var(--red);
+}
+
+.send:hover {
+  background:var(--red);
+  letter-spacing: 4px;
+  cursor: pointer;
+  color: var(--white);
 }
