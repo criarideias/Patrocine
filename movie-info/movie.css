@@ -57,7 +57,6 @@ body {
   position: absolute;
   width: 100vw;
   top: 0;
-  background: linear-gradient(to bottom, rgb(0, 0, 0), rgba(0, 0, 0, 0.205));
   height: 20vh;
   margin-top: -5vh;
   filter: blur(20px);
