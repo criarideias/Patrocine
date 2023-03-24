@@ -337,7 +337,87 @@ body {
   width: 50%;
   max-height: 20vh;
   height: 20vh;
+  color: var(--fontcolor1);
 }
+
+
+
+
+
+.adicionar-filme {
+  font-size: 1.5vw;
+  width: 40%;
+  background: var(--red);
+  color: var(--fontcolor1);
+  padding: 2vh 0vw;
+  margin-top: 5vh;
+  border-radius: 10px;
+  transition: 0.3s ease all;
+  border: 2px solid var(--red);
+}
+
+.adicionar-filme:hover {
+  background: transparent;
+  color: var(--red);
+  cursor: pointer;
+}
+
+
+.slider-area {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.slider-tittle {
+  width: 100%;
+  text-align: center;
+
+}
+
+
+.film-box {
+  width: 15vw;
+  padding: 3vh 2vw;
+  border: 2px solid var(--red);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 4vh;
+}
+
+.film-box h2 {
+  font-size: 1.5vw;
+  margin-top: 0;
+}
+
+.film-box h3 {
+  font-size: 1vw;
+  margin-top: 0vh;
+}
+
+.apagar-filme {
+  font-size: 1.5vw;
+  width: 100%;
+  background: var(--red);
+  color: var(--fontcolor1);
+  padding: 1vh 0vw;
+  margin-top: 2vh;
+  border-radius: 10px;
+  transition: 0.3s ease all;
+  border: 2px solid var(--red);
+}
+
+.apagar-filme:hover {
+  background: transparent;
+  color: var(--red);
+  cursor: pointer;
+}
+
 
 
 .movies-flex {

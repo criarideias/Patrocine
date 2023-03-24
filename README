@@ -1,0 +1,39 @@
+                         Programação
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            DASHBOARD
+
+Como funciona?
+
+primeiro se efetua um login, que é gerado na base do codigo mesmo com o seguinte: 
+Usuario: Jean 
+Senha: Jean2126
+
+A Dashboard é dividida entre o lado left(dash-left), onde fica os botões que exibem as sections, e o lado right(dash-right), onde fica a section geral right-area.
+
+Cada "right-area" possui uma segunda class (exemplo: class="right-area principais-filmes"), que separa as sections mantendo a sequencia com a dash-left.
+
+
+                            Dash right
+
+
