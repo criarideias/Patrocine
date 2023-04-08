@@ -1,0 +1,148 @@
+                         Programação
+
+
+Header Padrão de linkagem entre paginas
+
+O video/imagem é um filme principal, o botão comprar ingresso e mais info, levam para o mesmo destino (movie-info desse filme)
+
+desenvolver uma especie de slider que identifica o final do trailer do filme, assim que acabar, mudar o video de fundo, junto com seu titulo(Imagem), sinopse e linkagem dos botões
+Em versão mobile o audio do video que desparece continua rodando (consertar)
+O Slider na versão mobile devera trocar de 15 em 15 segundos
+
+
+A programação é definida pela dashboard
+Os filmes em breve são definidos pela dashboard
+
+a classificação dos filmes seguem o parametro global, portanto desenvolver um script que comunique com a dashboard, onde troca a cor do fundo da classificação de acordo com a informação definida pela dashboard
+
+
+
+
+
+
+
+
+
+         Preços
+
+
+area de preços, onde o cliente clica no botão e vai pra saida checkout 
+
+sistema de anuncios e avisos/novidades
+
+
+
+
+         Convenios
+
+botão que vai para o whatsapp
+
+
+         Contato
+
+Sistema de botao que vai para o whatsapp normal
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            DASHBOARD
+
+Como funciona?
+
+A dashboard só pode ser acessada pesquisando https://patrocine.com.br/admin
+primeiro se efetua um login, que é gerado na base do codigo mesmo com o seguinte: 
+Usuario: Jean 
+Senha: Jean@2126
+
+A Dashboard é dividida entre o lado left(dash-left), onde fica os botões que exibem as sections, e o lado right(dash-right), onde fica a section geral right-area.
+
+Cada "right-area" possui uma segunda class (exemplo: class="right-area principais-filmes"), que separa as sections mantendo a sequencia com a dash-left.
+
+
+
+
+         principais-filmes
+
+Essa "right-area" é a parte que controla o slider de filmes da pagina de programação
+
+é definido o nome do filme através do input text (identificação)
+
+com os botões de arquivo é adicionado o video, a foto do filme(mobile) e O titulo do filme em png
+
+a text area define a sinopse do filme
+
+o input de "Link do filme" é adicionado o link do filme na pagina (movie-info), onde na pagina de programação o usuario clica em algum dos botões e vai para a "movie-info" desse filme
+
+
+a data do filme é definida e deve ter um sistema de finalização na mesma hora, por exemplo, é definida as datas 02/03 à 10/03, se essa data foi definida as 14h da tarde do dia 02/03, o fim da data deve ser às 14h de 10/03
+
+
+o botão "adicionar-filme" adiciona o filme ao esquema de slide de filmes, e também envia informações para a "right-area slider-filmes" para manter um controle dos filmes exibidos.
+
+
+
+
+         slider-filmes
+
+right-area de controle dos filmes que exibem no esquema de slides, mostra o nome do filme, suas datas e possui um botão de apagar o filme para retirar esse filme do esquema de slides
+
+
+*IMPORTANTE*
+
+O slider de filmes não tem comunicação com a programação (dashboard), somente com a "movie-info" de cada filme
+
+
+
+
+
+
+         Filmes
+
+
+
+"movie-flex" exibe os filmes que estão ativos na programação,
+
+embaixo dessa area tem o formulario de adicionar o filme
+
+Nome do FIlme
+Sinopse do Filme
+Elenco
+Classificação
+
+Input de arquvio que adiciona a capa do filme
+
+é definido em qual sala o filme sera exibido
+
+
+*DEFINIR OS HORARIOS DO FILME*
+
+O sistema de adicionar os horarios, funciona assim
+
+é definido a data inicial e a final, e é marcado as caixas de data (input checkbox), sendo assim todos os dias entre a data inicial e a data final terão os horarios marcados.
+
+
+por fim um botão "send" para enviar o filme para a pagina de programação, movie-info e também para a "movie-flex" da dashboard para manter o controle dos filmes que estão em exibição
+
+
+
+         anuncios
+
+sistema simples de adicionar anuncio que exibe na página de preços, se adicionar um novo anuncio ou aviso, o que estava antes é delatado.
+
+
+
+
+
+
