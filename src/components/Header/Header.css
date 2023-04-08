@@ -33,6 +33,7 @@
 
 .header img {
   width: 10vw;
+  cursor: pointer;
 }
 
 .header-btts {
@@ -158,17 +159,4 @@
 
 .check-menu:checked ~ .menu-box {
   margin-right: 0;
-}
-
-.menu-box a {
-  color: white;
-  margin-top: 2vh;
-  font-size: 120%;
-  width: 90%;
-  text-align: center;
-  border: 2px solid var(--red);
-  border-radius: 8px;
-  box-shadow: 0 15px 15px rgba(15, 15, 15, 0.19);
-  padding: 8px 0px;
-  cursor: default;
 }

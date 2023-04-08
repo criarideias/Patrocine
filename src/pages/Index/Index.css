@@ -89,7 +89,6 @@
 /*Exibição*/
 
 .exibicao-area {
-  height: 100vh;
   width: 110vw;
   background: var(--dark1);
   display: flex;
