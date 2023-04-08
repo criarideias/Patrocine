@@ -1,4 +1,6 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
+
 import "./Header.css";
 import "./Menu.css";
 import "./Header-Mobile.css";
@@ -7,20 +9,53 @@ import Logo from "../../assets/logo.png";
 import LogoMobile from "../../assets/logo-mobile.png";
 
 const Header = () => {
+  const location = useLocation();
+  const paginas = [
+    {
+      title: "Programação",
+      path: "/",
+    },
+    {
+      title: "Compre Online",
+      path: "/comprar",
+    },
+    {
+      title: "Preços",
+      path: "/precos",
+    },
+    {
+      title: "Bomboniere",
+      path: "/bomboniere",
+    },
+    {
+      title: "Convenios",
+      path: "/convenios",
+    },
+    {
+      title: "Contato",
+      path: "/contato",
+    },
+  ];
+
+  function renderPaginas() {
+    return paginas.map((pagina) => {
+      return (
+        <Link
+          key={pagina.path}
+          className={location.pathname === pagina.path ? "page-select" : ""}
+          to={pagina.path}
+        >
+          {pagina.title}
+        </Link>
+      );
+    });
+  }
+
   return (
     <header className="header">
       <main className="header-flex">
         <img src={Logo} alt="logo patrocine" />
-        <div className="header-btts">
-          <a href="index.html" className="page-select">
-            Programação
-          </a>
-          <a href="#">Compre Online</a>
-          <a href="precos/precos.html">Preços</a>
-          <a href="#">Bomboniere</a>
-          <a href="convenios/convenios.html">Convenios</a>
-          <a href="contato/contato.html">Contato</a>
-        </div>
+        <div className="header-btts">{renderPaginas()}</div>
       </main>
       <main className="inner-nav">
         <img src={LogoMobile} alt="logo patrocine mobile" />

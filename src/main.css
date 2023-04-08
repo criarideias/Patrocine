@@ -24,16 +24,13 @@
   --fontcolor3: rgb(255, 255, 255, 0.5);
 }
 
-div#root {
-  width: 100%;
-  min-height: 100vh;
+body {
+  overflow-x: hidden;
+  background: var(--dark1);
 }
 
-body {
-  background: var(--dark1);
-  max-height: 100vh;
-  min-height: 100vh;
-  overflow-x: hidden;
+div#root {
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: center;

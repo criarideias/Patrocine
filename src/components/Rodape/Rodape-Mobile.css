@@ -1,0 +1,47 @@
+@media screen and (max-width: 420px) {
+  .reuniao h2 {
+    font-size: 4.5vw;
+  }
+
+  .reuniao h3 {
+    font-size: 3vw;
+  }
+
+  .underline input {
+    font-size: 3.6vw;
+  }
+
+  .reuniao button {
+    padding: 7px 0px;
+    font-size: 4vw;
+  }
+
+  .endereco h2 {
+    font-size: 4.5vw;
+  }
+
+  .endereco .contato {
+    font-size: 4.5vw;
+  }
+
+  .endereco h3 {
+    font-size: 3.1vw;
+  }
+
+  .endereco a {
+    font-size: 3.1vw;
+  }
+
+  .endereco i {
+    font-size: 3.1vw;
+  }
+
+  .outros {
+    width: 82%;
+    margin-top: 2vh;
+  }
+
+  .outros h2 {
+    font-size: 4.5vw;
+  }
+}
