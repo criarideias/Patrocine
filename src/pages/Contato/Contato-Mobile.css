@@ -1,0 +1,50 @@
+@media screen and (max-width: 800px) {
+  .tittle {
+    font-size: 5.8vw;
+  }
+  .contato-area {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+  }
+  .contato-box:last-child {
+    margin-bottom: 10vh;
+  }
+  .contato-box {
+    width: 72vw;
+    background: var(--dark2);
+    padding: 3.5vh 4vw;
+    height: 30.5vw;
+    border-radius: 1.8vw;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    margin-top: 4vh;
+  }
+
+  .contato-box h2 {
+    color: var(--fontcolor1);
+    font-size: 5vw;
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .contato-box h3 {
+    color: var(--fontcolor2);
+    font-size: 4.5vw;
+    font-weight: 400;
+    margin-top: 3vh;
+  }
+
+  .contato-box button {
+    width: 100%;
+    text-align: center;
+    font-size: 6.5vw;
+    margin-top: 2vh;
+    height: 15vw;
+    border-radius: 10px;
+    color: var(--fontcolor1);
+    background: #25d366;
+  }
+}
