@@ -16,46 +16,43 @@ $user = $_SESSION["user"];
 
 <section class="dash-right">
     <main class="right-area principais-filmes">
-        <h2>Nome do Filme</h2>
-        <input type="text" placeholder="Nome do Filme" />
-        <h2>Video Background para PC</h2>
-        <form action="#">
+        <form action="../api/POST/addFilme.php" method="POST" enctype="multipart/form-data">
+            <h2>Nome do Filme</h2>
+            <input name="nome" type="text" placeholder="Nome do Filme" required />
+
+            <h2>Video Background para PC</h2>
             <div class="input-file-container">
-                <input class="input-file" id="my-file" type="file" />
-                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+                <input name="banner" class="input-file" id="banner-file" type="file" accept="image/*" required />
+                <label tabindex="0" for="banner-file" class="input-file-trigger">Selecione uma imagem....</label>
             </div>
             <p class="file-return"></p>
-        </form>
-        <h2>Titulo do filme</h2>
-        <form action="#">
+
+            <h2>Titulo do filme</h2>
             <div class="input-file-container">
-                <input class="input-file" id="my-file" type="file" />
-                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+                <input name="titulo" class="input-file" id="titulo-file" type="file" accept="image/*" required />
+                <label tabindex="0" for="titulo-file" class="input-file-trigger">Selecione uma imagem...</label>
             </div>
             <p class="file-return"></p>
-        </form>
-        <h2>Sinopse do Filme</h2>
-        <textarea name="" id="" placeholder="Sinopse"></textarea>
-        <h2>Foto Background para Mobile</h2>
-        <form action="#">
+
+            <h2>Sinopse do Filme</h2>
+            <textarea name="sinopse" id="" placeholder="Sinopse" required></textarea>
+
+            <h2>Foto Background para Mobile</h2>
             <div class="input-file-container">
-                <input class="input-file" id="my-file" type="file" />
-                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+                <input name="retrato" class="input-file" id="retrato-file" type="file" accept="image/*" required />
+                <label tabindex="0" for="retrato-file" class="input-file-trigger">Selecione uma imagem...</label>
             </div>
             <p class="file-return"></p>
+
+            <h3>Defina Datas do Filme</h3>
+            <div class="data-box">
+                <input name="dataDeInicio" type="date" required />
+                <h4>até</h4>
+                <input name="dataDeTermino" type="date" required />
+            </div>
+
+            <button type="submit" class="adicionar-filme">Adicionar Filme</button>
         </form>
-
-        <h2>Link Do Filme</h2>
-        <input type="text" placeholder="Nome do Filme" />
-
-        <h3>Defina Datas do Filme</h3>
-        <div class="data-box">
-            <input type="date" />
-            <h4>até</h4>
-            <input type="date" />
-        </div>
-
-        <button class="adicionar-filme">Adicionar Filme</button>
     </main>
 
     <main class="right-area slider-filmes">

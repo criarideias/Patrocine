@@ -1,7 +1,7 @@
 <?php
 
 include("../api/conexao.php");
-include("./actions/getUserData.php");
+include("../api/GET/validateSession.php");
 
 ?>
 <!DOCTYPE html>
