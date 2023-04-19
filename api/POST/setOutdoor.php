@@ -5,7 +5,8 @@ include("../GET/validateSession.php");
 
 if (!validarSession($con)) return header("Location: ../../dashboard/");
 
-function callback($msg) {
+function callback($msg)
+{
     echo "
     <script>
         window.alert('$msg');
@@ -30,7 +31,7 @@ if (!move_uploaded_file($banner["tmp_name"], $arquivoAlvoBanner)) {
 $sql = "UPDATE `outdoors` SET `arquivo` = '$nomeDoBanner' WHERE `id` = $id";
 $result = mysqli_query($con, $sql);
 
-if($result) {
+if (!$result) {
     return callback("ERRO: Ocorreu um erro desconhecido ao tentar atualizar o Banco de Dados");
 }
 

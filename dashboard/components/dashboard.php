@@ -89,31 +89,31 @@ $user = $_SESSION["user"];
         <h2>Filmes Em Exibição</h2>
         <main class="movies-flex">
             <div class="movie-box">
-                <img src="/imagens/cartas-mobile.jpg" alt="" />
+                <img src="../src/assets/cartas-mobile.jpg" alt="" />
                 <h2>Nome do Filme</h2>
                 <h3>##/## - ##/##</h3>
                 <button>Apagar Filme</button>
             </div>
             <div class="movie-box">
-                <img src="/imagens/cartas-mobile.jpg" alt="" />
+                <img src="../src/assets/cartas-mobile.jpg" alt="" />
                 <h2>Nome do Filme</h2>
                 <h3>##/## - ##/##</h3>
                 <button>Apagar Filme</button>
             </div>
             <div class="movie-box">
-                <img src="/imagens/cartas-mobile.jpg" alt="" />
+                <img src="../src/assets/cartas-mobile.jpg" alt="" />
                 <h2>Nome do Filme</h2>
                 <h3>##/## - ##/##</h3>
                 <button>Apagar Filme</button>
             </div>
             <div class="movie-box">
-                <img src="/imagens/cartas-mobile.jpg" alt="" />
+                <img src="../src/assets/cartas-mobile.jpg" alt="" />
                 <h2>Nome do Filme</h2>
                 <h3>##/## - ##/##</h3>
                 <button>Apagar Filme</button>
             </div>
             <div class="movie-box">
-                <img src="/imagens/cartas-mobile.jpg" alt="" />
+                <img src="../src/assets/cartas-mobile.jpg" alt="" />
                 <h2>Nome do Filme</h2>
                 <h3>##/## - ##/##</h3>
                 <button>Apagar Filme</button>
@@ -129,7 +129,7 @@ $user = $_SESSION["user"];
         <h3>Capa Do Filme</h3>
         <form action="#">
             <div class="input-file-container">
-                <input class="input-file" id="my-file" type="file" />
+                <input class="input-file" id="my-file" type="file" accept="image/*" required />
                 <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
             </div>
             <p class="file-return"></p>
@@ -468,23 +468,23 @@ $user = $_SESSION["user"];
     </main>
     <main class="right-area anuncios">
         <h2>Adicionar um Anuncio</h2>
-        <form action="#">
+        <form action="../api/POST/setOutdoor.php?id=1" method="POST" enctype="multipart/form-data">
             <div class="input-file-container">
                 <div class="input-file-flex">
-                    <input class="input-file" id="my-file" type="file" />
-                    <label tabindex="0" for="my-file" class="input-file-trigger">Selecione um arquivo...</label>
-                    <button>Salvar</button>
+                    <input name="banner" class="input-file" id="adicionar-ad" type="file" accept="image/*, video/*" required />
+                    <label tabindex="0" for="adicionar-ad" class="input-file-trigger">Selecione um arquivo...</label>
+                    <button type="submit">Salvar</button>
                 </div>
                 <p class="file-return"></p>
             </div>
         </form>
         <h2>Adicione uma Novidade</h2>
-        <form action="#">
-        <div class="input-file-container">
+        <form action="../api/POST/setOutdoor.php?id=2" method="POST" enctype="multipart/form-data">
+            <div class="input-file-container">
                 <div class="input-file-flex">
-                    <input class="input-file" id="my-file" type="file" />
-                    <label tabindex="0" for="my-file" class="input-file-trigger">Selecione um arquivo...</label>
-                    <button>Salvar</button>
+                    <input name="banner" class="input-file" id="adicionar-novidade" type="file" accept="image/*, video/*" required />
+                    <label tabindex="0" for="adicionar-novidade" class="input-file-trigger">Selecione um arquivo...</label>
+                    <button type="submit">Salvar</button>
                 </div>
                 <p class="file-return"></p>
             </div>
