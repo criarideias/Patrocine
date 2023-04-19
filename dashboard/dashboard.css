@@ -260,6 +260,34 @@ body {
   width: 15vw;
   margin-top: 2vh;
 }
+
+.input-file-flex {
+  display: flex;
+  justify-content: space-around;
+
+  width: 500px;
+}
+
+.input-file-flex button {
+  background: transparent;
+  width: 40%;
+  border-radius: 2vh;
+  padding: 7px 0px;
+  font-size: 2vh;
+  font-weight: 400;
+  color: var(--red);
+  transition: 0.3s ease all;
+  border: 2px solid var(--red);
+  cursor: pointer;
+}
+
+.input-file-flex button:hover {
+  background: var(--red);
+  letter-spacing: 4px;
+  cursor: pointer;
+  color: var(--white);
+}
+
 .js .input-file-trigger {
   display: block;
   padding: 14px 45px;

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 17, 2023 at 03:55 PM
--- Server version: 8.0.31
--- PHP Version: 8.0.26
+-- Tempo de geração: 19-Abr-2023 às 17:42
+-- Versão do servidor: 8.0.31
+-- versão do PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `patrocine`
+-- Banco de dados: `patrocine`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `filmes`
+-- Estrutura da tabela `filmes`
 --
 
 DROP TABLE IF EXISTS `filmes`;
@@ -47,7 +47,30 @@ CREATE TABLE IF NOT EXISTS `filmes` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `programacao`
+-- Estrutura da tabela `outdoors`
+--
+
+DROP TABLE IF EXISTS `outdoors`;
+CREATE TABLE IF NOT EXISTS `outdoors` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(128) NOT NULL,
+  `arquivo` varchar(128) DEFAULT NULL,
+  `dataDeModificacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Extraindo dados da tabela `outdoors`
+--
+
+INSERT INTO `outdoors` (`id`, `titulo`, `arquivo`, `dataDeModificacao`) VALUES
+(1, 'anuncio', NULL, '2023-04-19 16:33:37'),
+(2, 'novidade', NULL, '2023-04-19 16:33:37');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `programacao`
 --
 
 DROP TABLE IF EXISTS `programacao`;
@@ -62,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `programacao` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sessions`
+-- Estrutura da tabela `sessions`
 --
 
 DROP TABLE IF EXISTS `sessions`;
@@ -76,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `sessions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `sessions`
+-- Extraindo dados da tabela `sessions`
 --
 
 INSERT INTO `sessions` (`id`, `user`, `token`, `ip`, `dataDeExpiracao`) VALUES
@@ -97,6 +120,7 @@ INSERT INTO `sessions` (`id`, `user`, `token`, `ip`, `dataDeExpiracao`) VALUES
 ('607464', '956503', 'LjSJTYq3XjxLlWVzKxonQDtN1LSqPud4uTQMB26M454iRGy2t5Uw97HmmGPzXZLk', '::1', 1681673974),
 ('636554', '956503', 'mZUrhZhmpar2PNppz7KoaNW54cq9m1V4wic5ZuPgjt6aMJYv8uxxkZCV7j6mnZgf', '::1', 1681674599),
 ('640072', '956503', '1hE6t33RHqhvUReHCHRcOBQfiIV1V10oLtbAiAOeie8eBEdjoJIeHpyV7fCzy3aU', '::1', 1681675024),
+('678789', '956503', 'irWNqthO8VWls3WeEzSVv39rQUEx9ZOkjpUSJ1z98L9modnancr1a0i8AwDfrqIv', '::1', 1682008195),
 ('741034', '956503', 'K3uYJHEZ5oMTYqbJZE09vyVPL6Ip2EwGg4pBdKAIIrjz37NGnxa4tCsJRGobNEpl', '::1', 1681675250),
 ('806733', '956503', '45GNbAYNjCx3Z0nDPrSR42KrquHlhrOXPIsCEdJwMlsyLCyGXSxxYNmpMshbq9Tl', '::1', 1681674981),
 ('818158', '956503', '23jZ8ZntfCvT50QsXw4lTKIQ9xoAmbW3astQDNe5YUlDQf9DYMJqYsIkPDmcgNRU', '::1', 1681674380),
@@ -106,7 +130,7 @@ INSERT INTO `sessions` (`id`, `user`, `token`, `ip`, `dataDeExpiracao`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estrutura da tabela `usuarios`
 --
 
 DROP TABLE IF EXISTS `usuarios`;
@@ -119,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
--- Dumping data for table `usuarios`
+-- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `nome`, `username`, `senha`) VALUES
