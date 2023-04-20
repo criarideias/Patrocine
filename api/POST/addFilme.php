@@ -12,6 +12,14 @@ foreach ($_POST as $key => $dado) {
     $data[$key] = mysqli_real_escape_string($con, $dado);
 }
 
+$id;
+
+if(isset($_GET["id"])) {
+    $id = mysqli_real_escape_string($con, $_GET["id"]);
+} else {
+    $id = random_int(100000, 999999);
+}
+
 # Função que servirá como callback
 function callback($msg)
 {
@@ -66,9 +74,9 @@ if (!isset($_POST["elenco"])) {
     }
 
     $sql = "INSERT INTO `filmes` 
-        (nome, trailer, titulo, sinopse, retrato, dataDeInicio, dataDeTermino) 
+        (id, nome, trailer, titulo, sinopse, retrato, dataDeInicio, dataDeTermino) 
         VALUES
-        ('$nome', '$nomeDoTrailer', '$nomeDoTitulo', '$sinopse', '$nomeDoRetrato', '$dataDeInicio', '$dataDeTermino')
+        ('$id', '$nome', '$nomeDoTrailer', '$nomeDoTitulo', '$sinopse', '$nomeDoRetrato', '$dataDeInicio', '$dataDeTermino')
         ";
 } else {
     # Condição para caso o filme que esteja sendo adicionado seja do Tipo 1 (Exibição do SLider)
@@ -84,9 +92,9 @@ if (!isset($_POST["elenco"])) {
 
     $elenco = $data["elenco"];
     $sql = "INSERT INTO `filmes`
-        (nome, banner, sinopse, elenco, dataDeInicio, dataDeTermino, slider)
+        (id, nome, banner, sinopse, elenco, dataDeInicio, dataDeTermino, slider)
         VALUES
-        ('$nome', '$nomeDoBanner', '$sinopse', '$elenco', '$dataDeInicio', '$dataDeTermino', true)
+        ('$id', '$nome', '$nomeDoBanner', '$sinopse', '$elenco', '$dataDeInicio', '$dataDeTermino', true)
         ";
 }
 

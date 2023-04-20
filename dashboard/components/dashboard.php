@@ -120,9 +120,7 @@ $user = $_SESSION["user"];
             </div>
         </main>
 
-        <iframe name="hiddenFrame" hidden></iframe>
-
-        <form id="filme-slider" target="hiddenFrame" method="POST" enctype="multipart/form-data">
+        <form id="formFilme" method="POST" enctype="multipart/form-data">
             <h2>Adicionar Filme à Programação</h2>
             <input name="nome" type="text" placeholder="Nome do Filme" required />
 

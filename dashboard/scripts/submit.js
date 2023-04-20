@@ -1,24 +1,24 @@
 import { datediff } from "./dateManipulate";
 
-const sb = document.querySelector(".send");
+const filmeSlider = document.querySelector("#formFilme");
 
-sb.addEventListener("click", async () => {
-  const filmeSlider = document.querySelector("#filme-slider");
-  // });
+filmeSlider.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  e.stopPropagation();
 
-  // const filmeSlider = document.querySelector("#filme-slider");
+  const { currentTarget } = e;
 
-  // filmeSlider.addEventListener("submit", (e) => {
-  //   const { currentTarget } = e;
+  const id = new Date().getTime();
+  currentTarget.action = `../api/POST/addFilme.php?id=${id}`;
 
   // Salva a sala selecionada
-  const salaSelect = filmeSlider.querySelector("#sala");
+  const salaSelect = currentTarget.querySelector("#sala");
   const sala = salaSelect.options[salaSelect.selectedIndex].value;
 
   // Salva a data de início e termino
   const [dataDeInicio, dataDeTermino] = [
-    document.querySelector("#dataDeInicio").value,
-    document.querySelector("#dataDeTermino").value,
+    currentTarget.querySelector("#dataDeInicio").value,
+    currentTarget.querySelector("#dataDeTermino").value,
   ];
 
   // Armazena todas as opções selecionadas
@@ -66,7 +66,7 @@ sb.addEventListener("click", async () => {
     horarios: diasHorarios,
   };
 
-  const request = await fetch(`../api/POST/addHorarios.php?id=${sala}`, {
+  await fetch(`../api/POST/addHorarios.php?sala=${sala}&id=${id}`, {
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
@@ -74,7 +74,6 @@ sb.addEventListener("click", async () => {
     body: JSON.stringify(body),
     method: "POST",
   });
-  const response = await request.json();
-
-  console.log(response);
+  
+  currentTarget.submit();
 });
