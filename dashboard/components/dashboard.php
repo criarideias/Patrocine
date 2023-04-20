@@ -23,7 +23,7 @@ $user = $_SESSION["user"];
             <h2>Video Background para PC</h2>
             <div class="input-file-container">
                 <input name="trailer" class="input-file" id="banner-file" type="file" accept="video/*" required />
-                <label tabindex="0" for="banner-file" class="input-file-trigger">Selecione uma imagem....</label>
+                <label tabindex="0" for="banner-file" class="input-file-trigger">Selecione uma vídeo....</label>
                 <p class="file-return"></p>
             </div>
 
@@ -60,27 +60,9 @@ $user = $_SESSION["user"];
         <main class="slider-area">
             <h2 class="slider-tittle">Slider De Filmes</h2>
             <div class="film-box">
-                <h2>Nome Do Filme</h2>
-                <h3><span>##/## à ##/##</span></h3>
-                <button class="apagar-filme">Apagar</button>
-            </div>
-
-            <div class="film-box">
-                <h2>Nome Do Filme</h2>
-                <h3><span>##/## à ##/##</span></h3>
-                <button class="apagar-filme">Apagar</button>
-            </div>
-
-            <div class="film-box">
-                <h2>Nome Do Filme</h2>
-                <h3><span>##/## à ##/##</span></h3>
-                <button class="apagar-filme">Apagar</button>
-            </div>
-
-            <div class="film-box">
-                <h2>Nome Do Filme</h2>
-                <h3><span>##/## à ##/##</span></h3>
-                <button class="apagar-filme">Apagar</button>
+                <h2 id="filme-nome">Nome Do Filme</h2>
+                <h3><span id="filme-data">##/## à ##/##</span></h3>
+                <button id="filme-apagar" class="apagar-filme">Apagar</button>
             </div>
         </main>
     </main>
@@ -495,5 +477,6 @@ $user = $_SESSION["user"];
     </main>
 </section>
 
+<script src="./scripts/getFilmes.js"></script>
 <script src="./scripts/return.js"></script>
 <script src="./scripts/submit.js" type="module"></script>
