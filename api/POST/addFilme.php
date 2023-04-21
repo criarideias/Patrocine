@@ -14,10 +14,10 @@ foreach ($_POST as $key => $dado) {
 
 $id;
 
-if(isset($_GET["id"])) {
+if (isset($_GET["id"])) {
     $id = mysqli_real_escape_string($con, $_GET["id"]);
 } else {
-    $id = random_int(100000, 999999);
+    $id = time();
 }
 
 # Função que servirá como callback
@@ -92,7 +92,7 @@ if (!isset($_POST["elenco"])) {
 
     $elenco = $data["elenco"];
     $sql = "INSERT INTO `filmes`
-        (id, nome, banner, sinopse, elenco, dataDeInicio, dataDeTermino, slider)
+        (id, nome, banner, sinopse, elenco, dataDeInicio, dataDeTermino)
         VALUES
         ('$id', '$nome', '$nomeDoBanner', '$sinopse', '$elenco', '$dataDeInicio', '$dataDeTermino')
         ";
