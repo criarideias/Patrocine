@@ -7,15 +7,25 @@ $user = $_SESSION["user"];
 <section class="dash-left">
     <h2> <?php echo ("Olá, " . $user["nome"]) ?></h2>
 
-    <button>Principais Filmes</button>
-    <button>Slider de Filmes</button>
-    <button>Filmes</button>
-    <button>Anuncios</button>
-    <button>Sair</button>
+    <a href="#principais-filmes">
+        <button>Principais Filmes</button>
+    </a>
+    <a href="#slider">
+        <button>Slider de Filmes</button>
+    </a>
+    <a href="#filmes">
+        <button>Filmes</button>
+    </a>
+    <a href="#anuncios">
+        <button>Anúncios</button>
+    </a>
+    <a href="../api/POST/logout.php">
+        <button>Sair</button>
+    </a>
 </section>
 
 <section class="dash-right">
-    <main class="right-area principais-filmes">
+    <main class="right-area principais-filmes" id="principais-filmes">
         <form action="../api/POST/addFilme.php" method="POST" enctype="multipart/form-data">
             <h2>Nome do Filme</h2>
             <input name="nome" type="text" placeholder="Nome do Filme" required />
@@ -23,7 +33,7 @@ $user = $_SESSION["user"];
             <h2>Video Background para PC</h2>
             <div class="input-file-container">
                 <input name="trailer" class="input-file" id="banner-file" type="file" accept="video/*" required />
-                <label tabindex="0" for="banner-file" class="input-file-trigger">Selecione uma vídeo....</label>
+                <label tabindex="0" for="banner-file" class="input-file-trigger">Selecione um vídeo....</label>
                 <p class="file-return"></p>
             </div>
 
@@ -56,8 +66,8 @@ $user = $_SESSION["user"];
         </form>
     </main>
 
-    <main class="right-area slider-filmes">
-        <main class="slider-area">
+    <main class="right-area slider-filmes" id="slider">
+        <main id="slider-container" class="slider-area">
             <h2 class="slider-tittle">Slider De Filmes</h2>
             <div class="film-box">
                 <h2 id="filme-nome">Nome Do Filme</h2>
@@ -67,38 +77,14 @@ $user = $_SESSION["user"];
         </main>
     </main>
 
-    <main class="right-area filmes">
+    <main class="right-area filmes" id="filmes">
         <h2>Filmes Em Exibição</h2>
-        <main class="movies-flex">
+        <main id="movies-container" class="movies-flex">
             <div class="movie-box">
-                <img src="../src/assets/cartas-mobile.jpg" alt="" />
-                <h2>Nome do Filme</h2>
-                <h3>##/## - ##/##</h3>
-                <button>Apagar Filme</button>
-            </div>
-            <div class="movie-box">
-                <img src="../src/assets/cartas-mobile.jpg" alt="" />
-                <h2>Nome do Filme</h2>
-                <h3>##/## - ##/##</h3>
-                <button>Apagar Filme</button>
-            </div>
-            <div class="movie-box">
-                <img src="../src/assets/cartas-mobile.jpg" alt="" />
-                <h2>Nome do Filme</h2>
-                <h3>##/## - ##/##</h3>
-                <button>Apagar Filme</button>
-            </div>
-            <div class="movie-box">
-                <img src="../src/assets/cartas-mobile.jpg" alt="" />
-                <h2>Nome do Filme</h2>
-                <h3>##/## - ##/##</h3>
-                <button>Apagar Filme</button>
-            </div>
-            <div class="movie-box">
-                <img src="../src/assets/cartas-mobile.jpg" alt="" />
-                <h2>Nome do Filme</h2>
-                <h3>##/## - ##/##</h3>
-                <button>Apagar Filme</button>
+                <img id="filme-banner" src="../src/assets/cartas-mobile.jpg" alt="" />
+                <h2 id="filme-nome">Nome do Filme</h2>
+                <h3 id="filme-data">##/## - ##/##</h3>
+                <button id="filme-apagar">Apagar Filme</button>
             </div>
         </main>
 
@@ -451,7 +437,7 @@ $user = $_SESSION["user"];
         </form>
     </main>
 
-    <main class="right-area anuncios">
+    <main class="right-area anuncios" id="anuncios">
         <h2>Adicionar um Anuncio</h2>
         <form action="../api/POST/setOutdoor.php?id=1" method="POST" enctype="multipart/form-data">
             <div class="input-file-container">

@@ -207,10 +207,6 @@ body {
   color: white;
 }
 
-.dash-left button:first-child {
-  margin-top: 20vh;
-}
-
 .dash-left button {
   margin-top: 1vh;
   background: transparent;
