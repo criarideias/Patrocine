@@ -1,0 +1,205 @@
+.movie-container {
+  width: 86vw;
+  padding: 2vw;
+  background: var(--dark2);
+  margin-top: 12vh;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 75vh;
+}
+
+.movie-left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28%;
+}
+
+.movie-left img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.452);
+}
+
+.movie-right {
+  width: 68%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 5vh;
+  overflow-y: scroll;
+  max-height: 70vh;
+  padding: 1vw;
+}
+
+.movie-right::-webkit-scrollbar {
+  display: none;
+}
+
+.movie-right h2 {
+  font-size: 2.5vw;
+  font-weight: 500;
+  color: var(--red);
+}
+
+.movie-right h3 {
+  font-size: 1.5vw;
+  font-weight: 400;
+  color: var(--fontcolor3);
+  margin-top: -1vh;
+}
+
+.movie-right p {
+  font-size: 1.2vw;
+  font-weight: 400;
+  color: var(--fontcolor2);
+  margin-top: 2vh;
+}
+
+.movie-right h4 {
+  width: 100%;
+  text-align: center;
+  font-size: 1.8vw;
+  font-weight: 400;
+  color: var(--fontcolor1);
+  margin-top: 6vh;
+}
+
+.horarios {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.horarios-overflow {
+  overflow-x: scroll;
+  width: 100%;
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 2vh 0;
+}
+
+.horarios-overflow::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: var(--gray);
+  border-radius: 10px;
+}
+
+.horarios-overflow::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 10px;
+}
+
+.horario-btt {
+  margin-right: 1.5vw;
+  margin-left: 1.5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: var(--dark3);
+  padding: 1vw;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.452);
+  transition: 0.3s ease all;
+}
+
+.horario-btt h2 {
+  font-size: 2.3vw;
+  font-weight: 400;
+  color: var(--fontcolor1);
+}
+
+.horario-btt h3 {
+  font-size: 1.5vw;
+  font-weight: 400;
+  color: var(--fontcolor3);
+}
+
+.horario-btt:hover {
+  transform: translateY(-2vh);
+  cursor: pointer;
+}
+
+.horarios-view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;
+  margin-top: 4vh;
+  padding: 2vw;
+  border-radius: 20px;
+  background: var(--dark3);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.452);
+}
+
+.horario-view-box {
+  width: 26%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid var(--red);
+  padding: 1vw;
+  margin-top: 4vh;
+  border-radius: 15px;
+}
+
+.horario-view-box button {
+  width: 100%;
+  margin-top: 1vh;
+  padding: 1.5vh 0vw;
+  font-size: 1vw;
+  background: var(--red);
+  color: var(--fontcolor1);
+  border: 2px solid var(--red);
+  transition: 0.3s ease all;
+  border-radius: 10px;
+}
+
+.movie-right button:hover {
+  color: var(--red);
+  background: transparent;
+  cursor: pointer;
+}
+
+.horario-view-box h2 {
+  font-size: 3vw;
+  color: var(--fontcolor1);
+  letter-spacing: 2px;
+}
+
+.horario-view-box h3 {
+  font-size: 1.5vw;
+  color: var(--fontcolor2);
+}
+
+button.close-btn {
+  background: none;
+  color: white;
+  font-size: 6vh;
+  font-weight: 400;
+  cursor: pointer;
+  padding: 0;
+  position: absolute;
+  margin-top: -4vh;
+  margin-left: -3vh;
+  z-index: 999;
+}
+
+@media screen and (max-width: 800px) {
+  button.close-btn {
+    margin: 0;
+    position: static;
+    align-self: flex-start;
+  }
+}

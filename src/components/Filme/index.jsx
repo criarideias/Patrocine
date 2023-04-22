@@ -1,16 +1,30 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-const Filme = ({ data }) => {
-  const { id, titulo, banner, classificacao, disponivel } = data;
+import Classificacao from "../Classificacao";
+
+import { repositorioDeAssets } from "../../config.json";
+
+const Filme = ({ data, disponivel }) => {
+  const navigate = useNavigate();
+  const { id, link, titulo, banner, classificacao } = data;
 
   if (disponivel) {
     return (
       <div className="movie-box">
-        <div className="classificacao">{classificacao}</div>
+        <Classificacao idade={classificacao.toString()} />
         <div className="movie-img">
-          <img src={banner} alt={titulo} />
+          <img src={`${repositorioDeAssets}${banner}`} alt={titulo} />
         </div>
-        <button className="comprar">Ver Mais</button>
+        <button
+          onClick={() => {
+            window.scrollTo(0, 0);
+            navigate(`./filme/${id}`);
+          }}
+          className="comprar"
+        >
+          Ver Mais
+        </button>
         <h3>{titulo}</h3>
       </div>
     );
@@ -18,11 +32,19 @@ const Filme = ({ data }) => {
 
   return (
     <div className="movie-box movie-breve">
-      <div className="classificacao">{classificacao}</div>
+      <Classificacao idade={classificacao.toString()} />
       <div className="movie-img">
-        <img src={banner} alt="homem formiga banner" />
+        <img src={`${repositorioDeAssets}${banner}`} alt={titulo} />
       </div>
-      <button className="avise">Avise-me Quando Chegar</button>
+      <button
+        onClick={() => {
+          window.scrollTo(0, 0);
+          navigate(`./filme/${id}`);
+        }}
+        className="avise"
+      >
+        Avise-me Quando Chegar
+      </button>
       <h3>{titulo}</h3>
     </div>
   );

@@ -39,6 +39,7 @@ $pastaAlvo = "../../uploads/";
 
 $nome = $data["nome"];
 $sinopse = $data["sinopse"];
+$link = $data["link"];
 $dataDeInicio = date('Y-m-d H:i:s', strtotime($data["dataDeInicio"]));
 $dataDeTermino = date('Y-m-d H:i:s', strtotime($data["dataDeTermino"]));
 
@@ -74,9 +75,9 @@ if (!isset($_POST["elenco"])) {
     }
 
     $sql = "INSERT INTO `filmes` 
-        (id, nome, trailer, titulo, sinopse, retrato, dataDeInicio, dataDeTermino, slider) 
+        (id, nome, trailer, titulo, sinopse, retrato, link, dataDeInicio, dataDeTermino, slider) 
         VALUES
-        ('$id', '$nome', '$nomeDoTrailer', '$nomeDoTitulo', '$sinopse', '$nomeDoRetrato', '$dataDeInicio', '$dataDeTermino', true)
+        ('$id', '$nome', '$nomeDoTrailer', '$nomeDoTitulo', '$sinopse', '$link', '$nomeDoRetrato', '$dataDeInicio', '$dataDeTermino', true)
         ";
 } else {
     # Condição para caso o filme que esteja sendo adicionado seja do Tipo 1 (Exibição do SLider)
@@ -91,10 +92,12 @@ if (!isset($_POST["elenco"])) {
     }
 
     $elenco = $data["elenco"];
+    $classificacao = intval($data["classificacao"]);
+
     $sql = "INSERT INTO `filmes`
-        (id, nome, banner, sinopse, elenco, dataDeInicio, dataDeTermino)
+        (id, nome, classificacao, banner, sinopse, elenco, link, dataDeInicio, dataDeTermino)
         VALUES
-        ('$id', '$nome', '$nomeDoBanner', '$sinopse', '$elenco', '$dataDeInicio', '$dataDeTermino')
+        ('$id', '$nome', $classificacao, '$nomeDoBanner', '$sinopse', '$elenco', '$link', '$dataDeInicio', '$dataDeTermino')
         ";
 }
 

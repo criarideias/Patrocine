@@ -19,7 +19,7 @@ const Header = () => {
     },
     {
       title: "Compre Online",
-      path: "/comprar",
+      path: "https://ingressoplus.net.br/site/",
     },
     {
       title: "Preços",

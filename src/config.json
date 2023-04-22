@@ -1,0 +1,4 @@
+{
+  "apiHostname": "http://localhost/patrocine/api/",
+  "repositorioDeAssets": "http://localhost/patrocine/uploads/"
+}

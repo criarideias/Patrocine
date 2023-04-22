@@ -1,37 +1,47 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import "./Index.css";
 import "./Index-Mobile.css";
-
-import VelozesEFuriososVideo from "../../assets/velozes-e-furiosos.mp4";
-import CartasMobile from "../../assets/cartas-mobile.jpg";
-import VelozesEFuriososLogo from "../../assets/Fast_and_Furious_10.png";
-import HomemFormigaBanner from "../../assets/2homemformigaeavfilmes12012023015801.jpeg";
 
 import "../../scripts/index-reveal";
 import Filme from "../../components/Filme";
 import Loader from "../../components/Loader";
 
+import { repositorioDeAssets } from "../../config.json";
+
 const VideoBackground = ({ data }) => {
-  const { id, video, banner, logo, description } = data;
+  const navigate = useNavigate();
+  const { id, trailer, link, retrato, titulo, sinopse } = data;
 
   return (
     <section className="video-background">
-      <video autoPlay loop src={video}></video>
+      <video autoPlay loop src={`${repositorioDeAssets}${trailer}`}></video>
       <img
         className="mobile-background"
-        src={banner}
+        src={`${repositorioDeAssets}${retrato}`}
         alt="patrocine mobile background"
       />
       <main className="movie-info-flex">
         <main className="movie-info">
-          <img src={logo} alt="patrocine filme background" />
-          <p>{description}</p>
+          <img
+            src={`${repositorioDeAssets}${titulo}`}
+            alt="patrocine filme background"
+          />
+          <p>{sinopse}</p>
           <div className="info-btts">
             <button>
-              <a href="https://ingressoplus.net.br/">Comprar Ingresso</a>
+              <a href={link} target="_blank">
+                Comprar Ingresso
+              </a>
             </button>
-            <button>Mais Info</button>
+            <button
+              onClick={() => {
+                navigate(`./filme/${id}`);
+              }}
+            >
+              Mais Info
+            </button>
           </div>
         </main>
       </main>
@@ -42,8 +52,11 @@ const VideoBackground = ({ data }) => {
 const ExibitionArea = ({ filmes }) => {
   function renderizarFilmes(disponiveis) {
     return filmes.map((filme) => {
-      if (disponiveis !== filme.disponivel) return null;
-      return <Filme key={filme.id} data={filme} />;
+      const dataDeInicio = new Date(filme.dataDeInicio);
+      const filmeDisponivel = dataDeInicio.getTime() < new Date().getTime();
+
+      if (disponiveis !== filmeDisponivel) return null;
+      return <Filme key={filme.id} data={filme} disponivel={filmeDisponivel} />;
     });
   }
 
@@ -72,119 +85,29 @@ const ExibitionArea = ({ filmes }) => {
   );
 };
 
-const Index = () => {
-  const [loading, setLoading] = useState({
-    video: true,
-    filmes: true,
-  });
+const Index = ({ filmes }) => {
+  const [loading, setLoading] = useState(true);
 
   const [video, setVideo] = useState({
-    id: 0,
-    video: "",
-    banner: "",
-    logo: "",
-    description: "",
+    retrato: "",
+    link: "",
+    trailer: "",
+    titulo: "",
+    sinopse: "",
   });
 
-  const [filmes, setFilmes] = useState([
-    {
-      id: Date.now(),
-      titulo: "",
-      banner: "",
-      classificacao: 0,
-      disponivel: false,
-    },
-  ]);
-
   useEffect(() => {
-    async function fetchVideo() {
-      const dummyVideo = {
-        id: 0,
-        video: VelozesEFuriososVideo,
-        banner: CartasMobile,
-        logo: VelozesEFuriososLogo,
-        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse dolore
-        quas eveniet asperiores sed corrupti temporibus, hic dolor facilis
-        labore tempore sequi impedit dignissimos. Culpa iste ea veniam eum
-        illo.`,
-      };
+    if (!filmes) return;
 
-      setVideo(dummyVideo);
-      setLoading((currentValue) => {
-        return { ...currentValue, video: false };
-      });
-    }
-    fetchVideo();
+    const filmesDoSlider = filmes.filter((filme) => filme.slider === "1");
+    const filmeSelecionado =
+      filmesDoSlider[Math.floor(Math.random() * filmesDoSlider.length)];
+    setVideo(filmeSelecionado);
 
-    async function fetchFilmes() {
-      const dummyFilmes = [
-        {
-          id: Math.floor(Math.random() * 10000),
-          titulo: "HOMEM-FORMIGA E A VESPA: QUANTUMANIA",
-          banner: HomemFormigaBanner,
-          classificacao: 14,
-          disponivel: false,
-        },
-        {
-          id: Math.floor(Math.random() * 10000),
-          titulo: "HOMEM-FORMIGA E A VESPA: QUANTUMANIA",
-          banner: HomemFormigaBanner,
-          classificacao: 14,
-          disponivel: false,
-        },
-        {
-          id: Math.floor(Math.random() * 10000),
-          titulo: "HOMEM-FORMIGA E A VESPA: QUANTUMANIA",
-          banner: HomemFormigaBanner,
-          classificacao: 14,
-          disponivel: false,
-        },
-        {
-          id: Math.floor(Math.random() * 10000),
-          titulo: "HOMEM-FORMIGA E A VESPA: QUANTUMANIA",
-          banner: HomemFormigaBanner,
-          classificacao: 14,
-          disponivel: false,
-        },
-        {
-          id: Math.floor(Math.random() * 10000),
-          titulo: "HOMEM-FORMIGA E A VESPA: QUANTUMANIA",
-          banner: HomemFormigaBanner,
-          classificacao: 14,
-          disponivel: true,
-        },
-        {
-          id: Math.floor(Math.random() * 10000),
-          titulo: "HOMEM-FORMIGA E A VESPA: QUANTUMANIA",
-          banner: HomemFormigaBanner,
-          classificacao: 14,
-          disponivel: true,
-        },
-        {
-          id: Math.floor(Math.random() * 10000),
-          titulo: "HOMEM-FORMIGA E A VESPA: QUANTUMANIA",
-          banner: HomemFormigaBanner,
-          classificacao: 14,
-          disponivel: true,
-        },
-        {
-          id: Math.floor(Math.random() * 10000),
-          titulo: "HOMEM-FORMIGA E A VESPA: QUANTUMANIA",
-          banner: HomemFormigaBanner,
-          classificacao: 14,
-          disponivel: true,
-        },
-      ];
+    setLoading(false);
+  }, [filmes]);
 
-      setFilmes(dummyFilmes);
-      setLoading((currentValue) => {
-        return { ...currentValue, filmes: false };
-      });
-    }
-    fetchFilmes();
-  }, []);
-
-  if (loading.video || loading.filmes) {
+  if (loading) {
     return <Loader />;
   }
 
@@ -192,7 +115,7 @@ const Index = () => {
     <>
       <VideoBackground data={video} />
       <h2 className="exibicao-tittle">Filmes em Exibição</h2>
-      <ExibitionArea filmes={filmes} />
+      <ExibitionArea filmes={filmes.filter((filme) => filme.slider !== "1")} />
     </>
   );
 };

@@ -28,7 +28,7 @@ $user = $_SESSION["user"];
     <main class="right-area principais-filmes" id="principais-filmes">
         <form action="../api/POST/addFilme.php" method="POST" enctype="multipart/form-data">
             <h2>Nome do Filme</h2>
-            <input name="nome" type="text" placeholder="Nome do Filme" required />
+            <input name="nome" type="text" placeholder="Nome do Filme" autocomplete="off" required />
 
             <h2>Video Background para PC</h2>
             <div class="input-file-container">
@@ -46,7 +46,10 @@ $user = $_SESSION["user"];
             </div>
 
             <h2>Sinopse do Filme</h2>
-            <textarea name="sinopse" id="" placeholder="Sinopse" required></textarea>
+            <textarea name="sinopse" id="" placeholder="Sinopse" autocomplete="off" required></textarea>
+
+            <h2>Link de Compra</h2>
+            <input name="link" type="text" placeholder="https://ingressoplus.net.br/" autocomplete="off" required />
 
             <h2>Foto Background para Mobile</h2>
             <div class="input-file-container">
@@ -90,13 +93,16 @@ $user = $_SESSION["user"];
 
         <form id="formFilme" method="POST" enctype="multipart/form-data">
             <h2>Adicionar Filme à Programação</h2>
-            <input name="nome" type="text" placeholder="Nome do Filme" required />
+            <input name="nome" type="text" placeholder="Nome do Filme" autocomplete="off" required />
 
             <h2>Sinopse do Filme</h2>
-            <textarea name="sinopse" placeholder="Sinopse" required></textarea>
+            <textarea name="sinopse" placeholder="Sinopse" autocomplete="off" required></textarea>
 
             <h2>Elenco do Filme</h2>
-            <textarea name="elenco" placeholder="Elenco" required></textarea>
+            <textarea name="elenco" placeholder="Elenco" autocomplete="off" required></textarea>
+
+            <h2>Link de Compra</h2>
+            <input name="link" type="text" placeholder="https://ingressoplus.net.br/" autocomplete="off" required />
 
             <h3>Capa Do Filme</h3>
             <div class="input-file-container">
@@ -111,6 +117,17 @@ $user = $_SESSION["user"];
                 <h4>até</h4>
                 <input name="dataDeTermino" id="dataDeTermino" type="date" required />
             </div>
+
+            <h3>Classificação Indicativa</h3>
+            <select name="classificacao">
+                <option value="0">Livre</option>
+                <option value="10">10 anos</option>
+                <option value="12">12 anos</option>
+                <option value="14">14 anos</option>
+                <option value="16">16 anos</option>
+                <option value="18">18 anos</option>
+            </select>
+
             <h3>Adicionar Horarios</h3>
             <select id="sala">
                 <option value="1">Sala 1</option>
@@ -433,6 +450,7 @@ $user = $_SESSION["user"];
                     </label>
                 </div>
             </div>
+
             <button type="submit" class="send">Salvar</button>
         </form>
     </main>
