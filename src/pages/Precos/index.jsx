@@ -1,12 +1,30 @@
 import React from "react";
 
+import { useFetch } from "../../hooks/useFetch";
+
 import "./Precos.css";
 import "./Precos-Mobile.css";
 
 import AnuncioBomboniere from "../../assets/anuncio-bomboniere.jpeg";
 import AnuncioSexta from "../../assets/anuncio-sexta.jpeg";
 
+import Loader from "../../components/Loader";
+
+import { repositorioDeAssets } from "../../config.json";
+
 const Precos = () => {
+  const outdoors = useFetch("GET/getOutdoors.php");
+
+  if (!outdoors) {
+    return <Loader />;
+  }
+
+  const anuncio = outdoors.filter((ad) => ad.titulo == "anuncio")[0];
+  const novidade = outdoors.filter((ad) => ad.titulo == "novidade")[0];
+
+  function handleButtonClick() {
+    window.open("https://ingresso.plus/site/");
+  }
   return (
     <>
       <section className="price-area">
@@ -15,19 +33,20 @@ const Precos = () => {
           <h2>Segunda á Quarta (exceto feriados)</h2>
           <li>R$ 26,00 Inteira</li>
           <li>R$ 13,00 a meia</li>
-          <button>Garanta Seu Ingresso!</button>
+
+          <button onClick={handleButtonClick}>Garanta Seu Ingresso!</button>
         </ul>
         <ul>
           <h2>Quinta e Sexta (exceto feriado)</h2>
           <li>R$ 28,00 a inteira</li>
           <li>R$ 14,00 a meia feriado</li>
-          <button>Garanta Seu Ingresso!</button>
+          <button onClick={handleButtonClick}>Garanta Seu Ingresso!</button>
         </ul>
         <ul>
           <h2>Sábado, Domingo e Feriados</h2>
           <li>R$ 28,00 a inteira</li>
           <li>R$ 14,00 a meia</li>
-          <button>Garanta Seu Ingresso!</button>
+          <button onClick={handleButtonClick}>Garanta Seu Ingresso!</button>
         </ul>
 
         <h2 className="tittle">Ingressos 3D</h2>
@@ -35,30 +54,36 @@ const Precos = () => {
           <h2>Segunda á Quarta (exceto feriados)</h2>
           <li>R$ 26,00 Inteira</li>
           <li>R$ 13,00 a meia</li>
-          <button>Garanta Seu Ingresso!</button>
+          <button onClick={handleButtonClick}>Garanta Seu Ingresso!</button>
         </ul>
         <ul>
           <h2>Quinta e Sexta (exceto feriado)</h2>
           <li>R$ 28,00 a inteira</li>
           <li>R$ 14,00 a meia feriado</li>
-          <button>Garanta Seu Ingresso!</button>
+          <button onClick={handleButtonClick}>Garanta Seu Ingresso!</button>
         </ul>
         <ul>
           <h2>Sábado, Domingo e Feriados</h2>
           <li>R$ 28,00 a inteira</li>
           <li>R$ 14,00 a meia</li>
-          <button>Garanta Seu Ingresso!</button>
+          <button onClick={handleButtonClick}>Garanta Seu Ingresso!</button>
         </ul>
       </section>
 
       <section className="novidades-area">
         <div className="novidade-box">
           <h2>Promoção Do Dia</h2>
-          <img src={AnuncioBomboniere} alt="patrocine bomboniere" />
+          <img
+            src={`${repositorioDeAssets}${anuncio.arquivo}`}
+            alt="patrocine promoção"
+          />
         </div>
         <div className="novidade-box">
           <h2>Novidades</h2>
-          <img src={AnuncioSexta} alt="patrocine sextou" />
+          <img
+            src={`${repositorioDeAssets}${novidade.arquivo}`}
+            alt="patrocine novidade"
+          />
         </div>
       </section>
 
