@@ -86,7 +86,14 @@ const Convenios = () => {
           explicabo totam officia reprehenderit veritatis ducimus perferendis
           enim earum et laborum laboriosam voluptatem tenetur consequuntur!
         </p>
-        <button className="fazer-convenio">Fazer Convênio</button>
+        <button
+          onClick={() => {
+            window.open("https://wa.me/553499505483");
+          }}
+          className="fazer-convenio"
+        >
+          Fazer Convênio
+        </button>
       </section>
       <div className="info-box">
         <h2>Exemplo de Cartão de Convênio</h2>

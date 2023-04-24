@@ -158,11 +158,28 @@
 .outros {
   width: 22%;
   display: flex;
-  align-items: flex-start;
+  align-items: start;
   justify-content: center;
   flex-direction: column;
   position: relative;
   padding: 10px 0px;
+}
+
+.outros.creditos {
+  align-items: center;
+}
+
+.outros.creditos a {
+  display: flex;
+
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.outros.creditos img {
+  cursor: pointer;
+  width: 70%;
 }
 
 .outros h2 {

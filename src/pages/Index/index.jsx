@@ -67,18 +67,30 @@ const ExibitionArea = ({ filmes }) => {
         <h2 className="breve-tittle">Em Breve</h2>
         <main className="breve-row">{renderizarFilmes(false)}</main>
         <main className="info-area">
-          <button className="autorizacao">
+          <button
+            onClick={() => {
+              window.open("https://patrocine.com.br/images/autorizacao.jpg");
+            }}
+            className="autorizacao"
+          >
             Autorização Para Entrada de Menores
           </button>
           <h2 className="socialmedia-area">Nos Siga nas Redes Sociais:</h2>
-          <button className="social-btt">
-            <i className="fa fa-instagram" aria-hidden="true"></i>
-            Instagram
-          </button>
-          <button className="social-btt">
-            <i className="fa fa-facebook" aria-hidden="true"></i>
-            Facebook
-          </button>
+          <a href="https://www.instagram.com/patrocinecinemas/" target="_blank">
+            <button className="social-btt">
+              <i className="fa fa-instagram" aria-hidden="true"></i>
+              Instagram
+            </button>
+          </a>
+          <a
+            href="https://www.facebook.com/patrocinecinemas/?locale=pt_BR"
+            target="_blank"
+          >
+            <button className="social-btt">
+              <i className="fa fa-facebook" aria-hidden="true"></i>
+              Facebook
+            </button>
+          </a>
         </main>
       </main>
     </section>

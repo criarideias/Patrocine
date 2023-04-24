@@ -26,10 +26,6 @@ const Header = () => {
       path: "/precos",
     },
     {
-      title: "Bomboniere",
-      path: "/bomboniere",
-    },
-    {
       title: "Convenios",
       path: "/convenios",
     },

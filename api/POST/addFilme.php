@@ -77,7 +77,7 @@ if (!isset($_POST["elenco"])) {
     $sql = "INSERT INTO `filmes` 
         (id, nome, trailer, titulo, sinopse, retrato, link, dataDeInicio, dataDeTermino, slider) 
         VALUES
-        ('$id', '$nome', '$nomeDoTrailer', '$nomeDoTitulo', '$sinopse', '$link', '$nomeDoRetrato', '$dataDeInicio', '$dataDeTermino', true)
+        ('$id', '$nome', '$nomeDoTrailer', '$nomeDoTitulo', '$sinopse', '$nomeDoRetrato', '$link', '$dataDeInicio', '$dataDeTermino', true)
         ";
 } else {
     # Condição para caso o filme que esteja sendo adicionado seja do Tipo 1 (Exibição do SLider)

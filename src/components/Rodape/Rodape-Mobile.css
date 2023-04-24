@@ -39,7 +39,7 @@
   }
 
   .endereco h3 {
-    font-size: 2.1vw;
+    font-size: 3vw;
   }
 
   .endereco a {
@@ -53,6 +53,10 @@
   .outros {
     width: 82%;
     margin-top: 2vh;
+  }
+
+  .outros a {
+    font-size: 3vw;
   }
 
   .outros h2 {
