@@ -1,4 +1,4 @@
 {
-  "apiHostname": "https://api.patrocine.com.br/",
+  "apiHostname": "https://api.patrocine.com.br/api/",
   "repositorioDeAssets": "https://site.patrocine.com.br/uploads/"
 }
