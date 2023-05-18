@@ -9,10 +9,15 @@ import Filme from "../../components/Filme";
 import Loader from "../../components/Loader";
 
 import { repositorioDeAssets } from "../../config.json";
+import { IFilme, IFilmeComum, IFilmeSlider } from "../../types";
 
-const VideoBackground = ({ data }) => {
+interface IVideoBackgroundProps {
+  filme: IFilmeSlider;
+}
+
+const VideoBackground: React.FC<IVideoBackgroundProps> = ({ filme }) => {
   const navigate = useNavigate();
-  const { id, trailer, link, retrato, titulo, sinopse } = data;
+  const { id, trailer, link, retrato, titulo, sinopse } = filme;
 
   return (
     <section className="video-background">
@@ -49,14 +54,18 @@ const VideoBackground = ({ data }) => {
   );
 };
 
-const ExibitionArea = ({ filmes }) => {
-  function renderizarFilmes(disponiveis) {
+interface IExibitionAreaProps {
+  filmes: IFilmeComum[];
+}
+
+const ExibitionArea: React.FC<IExibitionAreaProps> = ({ filmes }) => {
+  function renderizarFilmes(disponiveis: boolean) {
     return filmes.map((filme) => {
-      const dataDeInicio = new Date(filme.dataDeInicio);
-      const filmeDisponivel = dataDeInicio.getTime() < new Date().getTime();
+      const filmeDeInicio = new Date(filme.dataDeInicio);
+      const filmeDisponivel = filmeDeInicio.getTime() < new Date().getTime();
 
       if (disponiveis !== filmeDisponivel) return null;
-      return <Filme key={filme.id} data={filme} disponivel={filmeDisponivel} />;
+      return <Filme key={filme.id} filme={filme} disponivel={filmeDisponivel} />;
     });
   }
 
@@ -97,21 +106,19 @@ const ExibitionArea = ({ filmes }) => {
   );
 };
 
-const Index = ({ filmes }) => {
+interface IProps {
+  filmes: Array<IFilmeComum | IFilmeSlider>;
+}
+
+const Index: React.FC<IProps> = ({ filmes }) => {
   const [loading, setLoading] = useState(true);
 
-  const [video, setVideo] = useState({
-    retrato: "",
-    link: "",
-    trailer: "",
-    titulo: "",
-    sinopse: "",
-  });
+  const [video, setVideo] = useState<IFilmeSlider>();
 
   useEffect(() => {
     if (!filmes) return;
 
-    const filmesDoSlider = filmes.filter((filme) => filme.slider === "1");
+    const filmesDoSlider: IFilmeSlider[] = filmes.filter((filme) => filme.slider === "1");
     const filmeSelecionado =
       filmesDoSlider[Math.floor(Math.random() * filmesDoSlider.length)];
     setVideo(filmeSelecionado);
@@ -125,7 +132,7 @@ const Index = ({ filmes }) => {
 
   return (
     <>
-      <VideoBackground data={video} />
+      <VideoBackground filme={video} />
       <h2 className="exibicao-tittle">Filmes em Exibição</h2>
       <ExibitionArea filmes={filmes.filter((filme) => filme.slider !== "1")} />
     </>
