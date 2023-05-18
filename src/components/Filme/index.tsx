@@ -1,20 +1,26 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import Classificacao from "../Classificacao";
 
 import { repositorioDeAssets } from "../../config.json";
+import { IFilmeComum } from "../../types";
 
-const Filme = ({ data, disponivel }) => {
+interface IProps {
+  filme: IFilmeComum;
+  disponivel?: boolean;
+}
+
+const Filme: React.FC<IProps> = ({ filme, disponivel }) => {
   const navigate = useNavigate();
-  const { id, link, titulo, banner, classificacao } = data;
+  const { id, nome, banner, classificacao } = filme;
 
   if (disponivel) {
     return (
       <div className="movie-box">
-        <Classificacao idade={classificacao.toString()} />
+        <Classificacao idade={classificacao} />
         <div className="movie-img">
-          <img src={`${repositorioDeAssets}${banner}`} alt={titulo} />
+          <img src={`${repositorioDeAssets}${banner}`} alt={nome} />
         </div>
         <button
           onClick={() => {
@@ -25,16 +31,16 @@ const Filme = ({ data, disponivel }) => {
         >
           Ver Mais
         </button>
-        <h3>{titulo}</h3>
+        <h3>{nome}</h3>
       </div>
     );
   }
 
   return (
     <div className="movie-box movie-breve">
-      <Classificacao idade={classificacao.toString()} />
+      <Classificacao idade={classificacao} />
       <div className="movie-img">
-        <img src={`${repositorioDeAssets}${banner}`} alt={titulo} />
+        <img src={`${repositorioDeAssets}${banner}`} alt={nome} />
       </div>
       <button
         onClick={() => {
@@ -45,7 +51,7 @@ const Filme = ({ data, disponivel }) => {
       >
         Avise-me Quando Chegar
       </button>
-      <h3>{titulo}</h3>
+      <h3>{nome}</h3>
     </div>
   );
 };

@@ -8,8 +8,19 @@ import "./Filme.css";
 import "./Filme-Mobile.css";
 
 import Loader from "../../components/Loader";
+import { IFilme, IFilmeComum, IFilmeSlider, IHorario } from "../../types";
 
-const Filme = ({ filmes, horariosState }) => {
+interface IData {
+  dia: Date;
+  horarios: string[]
+}
+
+interface IProps {
+  filmes: Array<IFilmeSlider | IFilmeComum>;
+  horariosState: IHorario[];
+}
+
+const Filme: React.FC<IProps> = ({ filmes, horariosState }) => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const { filmeId } = useParams();
@@ -19,10 +30,10 @@ const Filme = ({ filmes, horariosState }) => {
     return <Loader />;
   }
 
-  const filme = filmes.filter((filme) => filme.id === filmeId);
+  const filme = filmes.find((filme) => filme.id === filmeId);
 
   // Caso o filme não tenha sido encontrado
-  if (filme.length === 0) {
+  if (!filme) {
     return (
       <section
         className="movie-container"
@@ -33,10 +44,15 @@ const Filme = ({ filmes, horariosState }) => {
     );
   }
 
-  const { id, nome, link, sinopse, dataDeInicio, dataDeTermino } = filme[0];
+  const { id, nome, link, sinopse, dataDeInicio, dataDeTermino } = filme;
 
-  const elenco = filme[0].elenco || "";
-  const banner = filme[0].banner || filme[0].retrato;
+  let elenco = "";
+  let banner = filme.retrato
+
+  if(filme.slider === "0") {
+    elenco = filme.elenco;
+    banner = filme.banner;
+  }
 
   const dataInicial = new Date(dataDeInicio);
   const diasDeDuracao = dateDiff(dataInicial, new Date(dataDeTermino));
@@ -45,21 +61,14 @@ const Filme = ({ filmes, horariosState }) => {
 
   function renderizarHorarios() {
     if (horarios.length === 0) return null;
-    // MODELO DA VARIÁVEL QUE ARMAZENA AS DATAS
-    // const datas = [
-    //   {
-    //     dia: "",
-    //     horarios: [""]
-    //   }
-    // ];
 
-    const datas = [];
+    const datas: IData[] = [];
 
     for (let i = 0; i <= diasDeDuracao; i++) {
       const diaAlvo = new Date();
       diaAlvo.setDate(dataInicial.getDate() + i);
       if (diaAlvo.getTime() >= new Date().getTime()) {
-        const diaHorarios = [];
+        const diaHorarios: string[] = [];
         horarios.forEach((horario) => {
           if (new Date(horario.horario).getDate() === diaAlvo.getDate()) {
             diaHorarios.push(horario.horario.split(" ")[1]);
