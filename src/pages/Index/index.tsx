@@ -65,7 +65,9 @@ const ExibitionArea: React.FC<IExibitionAreaProps> = ({ filmes }) => {
       const filmeDisponivel = filmeDeInicio.getTime() < new Date().getTime();
 
       if (disponiveis !== filmeDisponivel) return null;
-      return <Filme key={filme.id} filme={filme} disponivel={filmeDisponivel} />;
+      return (
+        <Filme key={filme.id} filme={filme} disponivel={filmeDisponivel} />
+      );
     });
   }
 
@@ -115,18 +117,47 @@ const Index: React.FC<IProps> = ({ filmes }) => {
 
   const [video, setVideo] = useState<IFilmeSlider>();
 
+  // Time to MTH (Make Typescript Happy)
+
+  function returnFilmesComuns() {
+    const filmesArray: IFilmeComum[] = [];
+    filmes.forEach((filme) => {
+      if (filme.slider === "1") return;
+      filmesArray.push(filme);
+    });
+
+    return filmesArray;
+  }
+
+  function returnFilmesSlider() {
+    const filmesArray: IFilmeSlider[] = [];
+    filmes.forEach((filme) => {
+      if (filme.slider === "0") return;
+      filmesArray.push(filme);
+    });
+
+    return filmesArray;
+  }
+
   useEffect(() => {
     if (!filmes) return;
 
-    const filmesDoSlider: IFilmeSlider[] = filmes.filter((filme) => filme.slider === "1");
+    const filmesComuns: IFilmeComum[] = returnFilmesComuns();
+    const filmesSlider: IFilmeSlider[] = returnFilmesSlider();
+
+    filmes.forEach((filme) => {
+      if (filme.slider === "0") return filmesComuns.push(filme);
+      filmesSlider.push(filme);
+    });
+
     const filmeSelecionado =
-      filmesDoSlider[Math.floor(Math.random() * filmesDoSlider.length)];
+      filmesSlider[Math.floor(Math.random() * filmesSlider.length)];
     setVideo(filmeSelecionado);
 
     setLoading(false);
   }, [filmes]);
 
-  if (loading) {
+  if (loading || !video) {
     return <Loader />;
   }
 
@@ -134,7 +165,7 @@ const Index: React.FC<IProps> = ({ filmes }) => {
     <>
       <VideoBackground filme={video} />
       <h2 className="exibicao-tittle">Filmes em Exibição</h2>
-      <ExibitionArea filmes={filmes.filter((filme) => filme.slider !== "1")} />
+      <ExibitionArea filmes={returnFilmesComuns()} />
     </>
   );
 };
