@@ -8,11 +8,11 @@ import "./Filme.css";
 import "./Filme-Mobile.css";
 
 import Loader from "../../components/Loader";
-import { IFilme, IFilmeComum, IFilmeSlider, IHorario } from "../../types";
+import { IFilmeComum, IFilmeSlider, IHorario } from "../../types";
 
 interface IData {
   dia: Date;
-  horarios: string[]
+  horarios: string[];
 }
 
 interface IProps {
@@ -47,9 +47,9 @@ const Filme: React.FC<IProps> = ({ filmes, horariosState }) => {
   const { id, nome, link, sinopse, dataDeInicio, dataDeTermino } = filme;
 
   let elenco = "";
-  let banner = filme.retrato
+  let banner = filme.retrato;
 
-  if(filme.slider === "0") {
+  if (filme.slider === "0") {
     elenco = filme.elenco;
     banner = filme.banner;
   }
