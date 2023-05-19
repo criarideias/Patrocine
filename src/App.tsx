@@ -14,9 +14,10 @@ import Convenios from "./pages/Convenios";
 import Filme from "./pages/Filme";
 
 import { apiHostname } from "./config.json";
+import { IFilmeComum, IFilmeSlider } from "./types";
 
 const App = () => {
-  let filmes = useFetch(`GET/getFilmes.php`);
+  let filmes: Array<IFilmeComum | IFilmeSlider> = useFetch(`GET/getFilmes.php`);
   const [horarios, setHorarios] = useState([]);
 
   // useEffect que requisita assincronamente os horários, sem interromper o loading da página
@@ -24,7 +25,7 @@ const App = () => {
     if (!filmes || horarios.length !== 0) return;
 
     async function fetchHorarios() {
-      const idsDosFilmes = [];
+      const idsDosFilmes: string[] = [];
       filmes.forEach((filme) => {
         if (filme.slider === "1") return;
         idsDosFilmes.push(filme.id);

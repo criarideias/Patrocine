@@ -8,9 +8,10 @@ import "./Precos-Mobile.css";
 import Loader from "../../components/Loader";
 
 import { repositorioDeAssets } from "../../config.json";
+import { IAd } from "../../types";
 
 const Precos = () => {
-  const outdoors = useFetch("GET/getOutdoors.php");
+  const outdoors: IAd[] = useFetch("GET/getOutdoors.php");
 
   if (!outdoors) {
     return <Loader />;

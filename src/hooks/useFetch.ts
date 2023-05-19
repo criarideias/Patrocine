@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 
 import { apiHostname } from "../config.json";
 
-export function useFetch(url, apiExterna) {
-  const [data, setData] = useState();
+export function useFetch(url: string, apiExterna?: boolean) {
+  const [data, setData] = useState<any>();
 
   useEffect(() => {
     async function fetchData() {
