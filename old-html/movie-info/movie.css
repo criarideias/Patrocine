@@ -264,13 +264,33 @@ body {
     align-items: center;
     justify-content: center;
     width: 28%;
+    position: relative;
 }
 
 .movie-left img {
     width: 100%;
     border-radius: 20px;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.452);
+   
 } 
+
+.classificacao {
+  position: absolute;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  background: var(--red);
+  color: var(--white);
+  width: 2.5vw;
+  height: 2.5vw;
+  font-size: 1.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin-top: -3vh;
+  margin-right: -1vw;
+}
 
 .movie-right {
     width: 68%;
@@ -298,8 +318,9 @@ body {
     font-size: 1.5vw;
     font-weight: 400;
     color: var(--fontcolor3);
-    margin-top: -1vh;
+    margin-top: 1vh;
 }
+
 
 .movie-right p {
     font-size: 1.2vw;

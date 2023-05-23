@@ -27,6 +27,15 @@
         width: 50%;
     }
 
+    .classificacao {
+        width: 5.8vw;
+        height: 5.8vw;
+        font-size: 2.8vw;
+        border-radius: 1vw;
+        margin-top: -3.5vh;
+        margin-right: -2vw;
+    }
+
     .movie-right {
         width: 100%;
         margin-top: 5vh;
@@ -73,6 +82,15 @@
         align-items: center;
         justify-content: center;
         width: 70%;
+    }
+
+    .classificacao {
+        width: 8vw;
+        height: 8vw;
+        font-size: 4.8vw;
+        border-radius: 1vw;
+        margin-top: -2.5vh;
+        margin-right: -2vw;
     }
 
     .movie-right {
