@@ -5,9 +5,6 @@ import { useFetch } from "../../hooks/useFetch";
 import "./Precos.css";
 import "./Precos-Mobile.css";
 
-import AnuncioBomboniere from "../../assets/anuncio-bomboniere.jpeg";
-import AnuncioSexta from "../../assets/anuncio-sexta.jpeg";
-
 import Loader from "../../components/Loader";
 
 import { repositorioDeAssets } from "../../config.json";
