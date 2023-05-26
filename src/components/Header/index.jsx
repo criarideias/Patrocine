@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useRef } from "react";
+import React, { useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import "./Header.css";
@@ -8,16 +8,11 @@ import "./Header-Mobile.css";
 import Logo from "../../assets/logo.png";
 import LogoMobile from "../../assets/logo-mobile.png";
 
-interface IPagina {
-  title: string;
-  path: string;
-}
-
 const Header = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const paginas: IPagina[] = [
+  const paginas = [
     {
       title: "Programação",
       path: "/",
@@ -40,7 +35,7 @@ const Header = () => {
     },
   ];
 
-  const checkMenu = useRef() as MutableRefObject<HTMLInputElement>;
+  const checkMenu = useRef();
 
   function handleLogoClick() {
     navigate("/");

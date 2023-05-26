@@ -1,11 +1,6 @@
 import React from "react";
-import { ClassificacaoIndicativa } from "../../types";
 
-interface IProps {
-  idade: ClassificacaoIndicativa; 
-}
-
-const Classificacao: React.FC<IProps> = ({ idade }) => {
+const Classificacao = ({ idade }) => {
   const idades = {
     0: { backgroundColor: "green", label: "L" },
     10: { backgroundColor: "cyan", label: "10" },
