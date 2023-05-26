@@ -9,19 +9,26 @@ import Filme from "../../components/Filme";
 import Loader from "../../components/Loader";
 
 import { repositorioDeAssets } from "../../config.json";
-import { IFilme, IFilmeComum, IFilmeSlider } from "../../types";
 
-interface IVideoBackgroundProps {
-  filme: IFilmeSlider;
-}
-
-const VideoBackground: React.FC<IVideoBackgroundProps> = ({ filme }) => {
+const VideoBackground = ({ data }) => {
   const navigate = useNavigate();
-  const { id, trailer, link, retrato, titulo, sinopse } = filme;
+  const [muted, setMuted] = useState(true);
+
+  const { id, trailer, link, retrato, titulo, sinopse } = data;
+
+  const handleMuteButtonClick = () => {
+    setMuted((currentValue) => !currentValue);
+  }
 
   return (
     <section className="video-background">
-      <video autoPlay loop src={`${repositorioDeAssets}${trailer}`}></video>
+      <div className={`mute-video ${!muted && "active"}`}>
+          <button onClick={handleMuteButtonClick}>
+            <i className="fa fa-volume-up" aria-hidden="true"></i>
+            <div className="slash"></div>
+          </button>
+      </div>
+      <video autoPlay loop src={`${repositorioDeAssets}${trailer}`} muted={muted}></video>
       <img
         className="mobile-background"
         src={`${repositorioDeAssets}${retrato}`}
@@ -54,20 +61,14 @@ const VideoBackground: React.FC<IVideoBackgroundProps> = ({ filme }) => {
   );
 };
 
-interface IExibitionAreaProps {
-  filmes: IFilmeComum[];
-}
-
-const ExibitionArea: React.FC<IExibitionAreaProps> = ({ filmes }) => {
-  function renderizarFilmes(disponiveis: boolean) {
+const ExibitionArea = ({ filmes }) => {
+  function renderizarFilmes(disponiveis) {
     return filmes.map((filme) => {
-      const filmeDeInicio = new Date(filme.dataDeInicio);
-      const filmeDisponivel = filmeDeInicio.getTime() < new Date().getTime();
+      const dataDeInicio = new Date(filme.dataDeInicio);
+      const filmeDisponivel = dataDeInicio.getTime() < new Date().getTime();
 
       if (disponiveis !== filmeDisponivel) return null;
-      return (
-        <Filme key={filme.id} filme={filme} disponivel={filmeDisponivel} />
-      );
+      return <Filme key={filme.id} data={filme} disponivel={filmeDisponivel} />;
     });
   }
 
@@ -108,64 +109,37 @@ const ExibitionArea: React.FC<IExibitionAreaProps> = ({ filmes }) => {
   );
 };
 
-interface IProps {
-  filmes: Array<IFilmeComum | IFilmeSlider>;
-}
-
-const Index: React.FC<IProps> = ({ filmes }) => {
+const Index = ({ filmes }) => {
   const [loading, setLoading] = useState(true);
 
-  const [video, setVideo] = useState<IFilmeSlider>();
-
-  // Time to MTH (Make Typescript Happy)
-
-  function returnFilmesComuns() {
-    const filmesArray: IFilmeComum[] = [];
-    filmes.forEach((filme) => {
-      if (filme.slider === "1") return;
-      filmesArray.push(filme);
-    });
-
-    return filmesArray;
-  }
-
-  function returnFilmesSlider() {
-    const filmesArray: IFilmeSlider[] = [];
-    filmes.forEach((filme) => {
-      if (filme.slider === "0") return;
-      filmesArray.push(filme);
-    });
-
-    return filmesArray;
-  }
+  const [video, setVideo] = useState({
+    retrato: "",
+    link: "",
+    trailer: "",
+    titulo: "",
+    sinopse: "",
+  });
 
   useEffect(() => {
     if (!filmes) return;
 
-    const filmesComuns: IFilmeComum[] = returnFilmesComuns();
-    const filmesSlider: IFilmeSlider[] = returnFilmesSlider();
-
-    filmes.forEach((filme) => {
-      if (filme.slider === "0") return filmesComuns.push(filme);
-      filmesSlider.push(filme);
-    });
-
+    const filmesDoSlider = filmes.filter((filme) => filme.slider === "1");
     const filmeSelecionado =
-      filmesSlider[Math.floor(Math.random() * filmesSlider.length)];
+      filmesDoSlider[Math.floor(Math.random() * filmesDoSlider.length)];
     setVideo(filmeSelecionado);
 
     setLoading(false);
   }, [filmes]);
 
-  if (loading || !video) {
+  if (loading) {
     return <Loader />;
   }
 
   return (
     <>
-      <VideoBackground filme={video} />
+      <VideoBackground data={video} />
       <h2 className="exibicao-tittle">Filmes em Exibição</h2>
-      <ExibitionArea filmes={returnFilmesComuns()} />
+      <ExibitionArea filmes={filmes.filter((filme) => filme.slider !== "1")} />
     </>
   );
 };

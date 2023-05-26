@@ -4,28 +4,25 @@ import { useNavigate } from "react-router-dom";
 import Classificacao from "../Classificacao";
 
 import { repositorioDeAssets } from "../../config.json";
-import { IFilmeComum } from "../../types";
 
-interface IProps {
-  filme: IFilmeComum;
-  disponivel?: boolean;
-}
-
-const Filme: React.FC<IProps> = ({ filme, disponivel }) => {
+const Filme = ({ data, disponivel }) => {
   const navigate = useNavigate();
-  const { id, nome, banner, classificacao } = filme;
+  const { id, nome, banner, classificacao } = data;
+
+  const filmeNomeURL = encodeURIComponent(nome).replaceAll("%20", "-");
+  console.log(nome, filmeNomeURL);
 
   if (disponivel) {
     return (
       <div className="movie-box">
-        <Classificacao idade={classificacao} />
+        <Classificacao idade={classificacao.toString()} />
         <div className="movie-img">
           <img src={`${repositorioDeAssets}${banner}`} alt={nome} />
         </div>
         <button
           onClick={() => {
             window.scrollTo(0, 0);
-            navigate(`./filme/${id}`);
+            navigate(`./filme/${filmeNomeURL}/${id}`);
           }}
           className="comprar"
         >
@@ -38,14 +35,14 @@ const Filme: React.FC<IProps> = ({ filme, disponivel }) => {
 
   return (
     <div className="movie-box movie-breve">
-      <Classificacao idade={classificacao} />
+      <Classificacao idade={classificacao.toString()} />
       <div className="movie-img">
         <img src={`${repositorioDeAssets}${banner}`} alt={nome} />
       </div>
       <button
         onClick={() => {
           window.scrollTo(0, 0);
-          navigate(`./filme/${id}`);
+          navigate(`./filme/${filmeNomeURL}/${id}`);
         }}
         className="avise"
       >
