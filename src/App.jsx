@@ -7,52 +7,52 @@ import Axios from "axios";
 
 import Index from "./pages/Index";
 import Header from "./components/Header";
-import Contato from "./pages/Contato";
-import Rodape from "./components/Rodape";
-import Precos from "./pages/Precos";
-import Convenios from "./pages/Convenios";
-import Filme from "./pages/Filme";
+import Contact from "./pages/Contact";
+import Footer from "./components/Footer";
+import Prices from "./pages/Prices";
+import Conveniants from "./pages/Conveniants";
+import Movie from "./pages/Movie";
 
 import { apiHostname } from "./config.json";
 
 const App = () => {
-  let filmes = useFetch(`GET/getFilmes.php`);
+  let movies = useFetch(`GET/getMovies.php`);
   const [horarios, setHorarios] = useState([]);
 
   // useEffect que requisita assincronamente os horários, sem interromper o loading da página
   useEffect(() => {
-    if (!filmes || horarios.length !== 0) return;
+    if (!movies || horarios.length !== 0) return;
 
     async function fetchHorarios() {
       const idsDosFilmes = [];
-      filmes.forEach((filme) => {
-        if (filme.slider === "1") return;
-        idsDosFilmes.push(filme.id);
+      movies.forEach((movie) => {
+        if (movie.slider === "1") return;
+        idsDosFilmes.push(movie.id);
       });
 
       const { data } = await Axios.get(
-        `${apiHostname}GET/getHorarios.php?ids=${idsDosFilmes.join(",")}`
+        `${apiHostname}GET/getGrids.php?ids=${idsDosFilmes.join(",")}`
       );
       setHorarios(data);
     }
     fetchHorarios();
-  }, [filmes]);
+  }, [movies]);
 
   return (
     <>
       <Router>
         <Header />
         <Routes>
-          <Route index element={<Index filmes={filmes} />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="/precos" element={<Precos />} />
-          <Route path="/convenios" element={<Convenios />} />
+          <Route index element={<Index movies={movies} />} />
+          <Route path="/contato" element={<Contact />} />
+          <Route path="/precos" element={<Prices />} />
+          <Route path="/convenios" element={<Conveniants />} />
           <Route
             path="/filme/:filmeTitulo/:filmeId"
-            element={<Filme filmes={filmes} horariosState={horarios} />}
+            element={<Movie movies={movies} horariosState={horarios} />}
           />
         </Routes>
-        <Rodape />
+        <Footer />
       </Router>
     </>
   );
