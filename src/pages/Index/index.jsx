@@ -12,23 +12,11 @@ import { repositorioDeAssets } from "../../config.json";
 
 const VideoBackground = ({ data }) => {
   const navigate = useNavigate();
-  const [muted, setMuted] = useState(true);
-
   const { id, trailer, link, retrato, titulo, sinopse } = data;
-
-  const handleMuteButtonClick = () => {
-    setMuted((currentValue) => !currentValue);
-  }
 
   return (
     <section className="video-background">
-      <div className={`mute-video ${!muted && "active"}`}>
-          <button onClick={handleMuteButtonClick}>
-            <i className="fa fa-volume-up" aria-hidden="true"></i>
-            <div className="slash"></div>
-          </button>
-      </div>
-      <video autoPlay loop src={`${repositorioDeAssets}${trailer}`} muted={muted}></video>
+      <video autoPlay loop src={`${repositorioDeAssets}${trailer}`}></video>
       <img
         className="mobile-background"
         src={`${repositorioDeAssets}${retrato}`}

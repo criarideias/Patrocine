@@ -45,46 +45,6 @@ body {
     position: relative;
 }
 
-.mute-video {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 0;
-  margin-right: 2vw;
-  margin-top: 30vh;
-  z-index: 999;
-}
-
-.mute-video input {
-  display: none;
-}
-
-.mute-video label {
-width: 2vw;
-height: 2vw;
-border-radius: 100%;
-border: 1px solid rgb(141, 141, 141);
-display: flex;
-align-items: center;
-justify-content: center;
-}
-
-.mute-video i {
-font-size: 1vw;
-color: rgb(141, 141, 141);
-}
-
-.mute-video .slash {
-width: 100%;
-height: 0.3vh;
-background: rgb(141, 141, 141);
-position: absolute;
-transform: rotate(-45deg);
-}
-
-
-
-
 
 .video-background video {
     width: 145vw;
