@@ -27,5 +27,3 @@ dist-ssr
 env.php
 
 uploads/*
-config.json
-src/config.json
