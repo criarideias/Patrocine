@@ -9,7 +9,6 @@ jobs:
     steps:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
-        uses: actions/setup-node@v2
         with:
           host: ${{ secrets.SERVER_HOST }}
           password: ${{ secrets.SERVER_PASSWORD }}
