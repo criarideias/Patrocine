@@ -16,4 +16,4 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            cd /apps/patrocine/front && build.sh 
+            cd /apps/patrocine/front && ./build.sh 
