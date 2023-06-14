@@ -9,9 +9,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2
+      
       - name: Install Node.js, NPM and Yarn
         uses: actions/setup-node@v1
-        
+
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -21,4 +22,6 @@ jobs:
           port: 22
           script_stop: true
           script: |
-            cd /apps/patrocine/front && ./build.sh 
+            cd /apps/patrocine/front
+            git pull
+            npm run build
