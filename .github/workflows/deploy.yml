@@ -7,23 +7,23 @@ jobs:
     name: Deploy...
     runs-on: ubuntu-latest
     steps:
+      - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+        
       - name: Checkout Code
         uses: actions/checkout@v2
 
-        - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
-
-      - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          password: ${{ secrets.SERVER_PASSWORD }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          port: 22
-          script_stop: true
-          script: |
-            cd /apps/patrocine/front
-            git pull
-            export NVM_DIR=~/.nvm
-            source ~/.nvm/nvm.sh
-            npm run build
+        - name: executing remote ssh commands using password
+          uses: appleboy/ssh-action@master
+          with:
+            host: ${{ secrets.SERVER_HOST }}
+            password: ${{ secrets.SERVER_PASSWORD }}
+            username: ${{ secrets.SERVER_USERNAME }}
+            port: 22
+            script_stop: true
+            script: |
+              cd /apps/patrocine/front
+              git pull
+              export NVM_DIR=~/.nvm
+              source ~/.nvm/nvm.sh
+              npm run build
