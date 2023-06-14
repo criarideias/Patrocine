@@ -10,6 +10,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
 
+        - name: Install Node.js, NPM and Yarn
+        uses: actions/setup-node@v1
+
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -21,11 +24,6 @@ jobs:
           script: |
             cd /apps/patrocine/front
             git pull
-            npm run build
-
-      - name: Install Node.js, NPM and Yarn
-        uses: actions/setup-node@v1
-          with:
-            script: |
-            npm install
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh
             npm run build
