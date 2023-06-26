@@ -4,6 +4,6 @@ import App from "./App";
 
 import "./main.css";
 
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") , HTMLElement).render(
   <App />
 );
